@@ -16,7 +16,7 @@ export default function PrivacyPage() {
 
           <h2>1. Who we are</h2>
           <p>
-            <strong>{site.legalName}</strong> (trading as {site.tradingName}), company number {site.companyNumber},
+            <strong>{site.legalName}</strong> (trading as {site.tradingName}){site.companyNumber ? `, company number ${site.companyNumber}` : ""},
             registered office {site.registeredOffice}, is the <strong>data controller</strong> for the personal data
             described in this policy. Contact us about privacy at{" "}
             <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.

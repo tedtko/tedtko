@@ -19,7 +19,7 @@ export default function TermsPage() {
           <p>
             These terms apply to all orders placed with <strong>{site.legalName}</strong>, trading as{" "}
             <strong>{site.tradingName}</strong> (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;), a company registered in England &amp; Wales
-            under company number {site.companyNumber}, with its registered office at {site.registeredOffice}
+            {site.companyNumber ? ` under company number ${site.companyNumber}` : ""}, with its registered office at {site.registeredOffice}
             {site.vatNumber ? `, VAT number ${site.vatNumber}` : ""}. You can contact us at{" "}
             <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a> or {site.phoneDisplay}.
           </p>

@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
           <div className="legal">
             <p><strong>{site.legalName} trading as {site.tradingName}. Registered in England &amp; Wales.</strong></p>
-            <p>Company Registration Number: {site.companyNumber}</p>
+            {site.companyNumber && <p>Company Registration Number: {site.companyNumber}</p>}
             <p>Registered Office: {site.registeredOffice}</p>
             {site.vatNumber && <p>VAT Number: {site.vatNumber}</p>}
             <p>

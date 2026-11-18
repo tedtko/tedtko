@@ -13,9 +13,9 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
 
   // Companies Act 2006 disclosures (fill these in).
-  companyNumber: "[Companies House Number]",
-  registeredOffice: "[Registered Office Address]",
-  vatNumber: "[VAT Number]", // set to "" to hide the line if not VAT registered
+  companyNumber: "", // e.g. "12345678". Hidden until filled in.
+  registeredOffice: "Flat 1-4, 67 Wellesley Road, Croydon, England, CR0 2AJ",
+  vatNumber: "", // e.g. "GB123456789". Hidden until filled in.
 
   // Contact
   supportEmail: "trtanev23@gmail.com", // change to support@yourdomain.co.uk when you have it
