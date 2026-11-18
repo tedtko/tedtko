@@ -18,7 +18,7 @@ export const site = {
   vatNumber: "GB 523 1091 33",
 
   // Contact
-  supportEmail: "trtanev23@gmail.com", // change to support@yourdomain.co.uk when you have it
+  supportEmail: "studio@fairtradedesign.pro",
   phoneDisplay: "+44 7598 610612",
   phoneHref: "tel:+447598610612",
   whatsappHref:
