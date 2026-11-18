@@ -19,8 +19,8 @@ export const site = {
 
   // Contact
   supportEmail: "studio@fairtradedesign.pro",
-  phoneDisplay: "+44 7933 574769",
-  phoneHref: "tel:+447933574769",
+  phoneDisplay: "+44 7598 610612",
+  phoneHref: "tel:+447598610612",
   whatsappHref:
     "https://wa.me/447933574769?text=" +
     encodeURIComponent("Hi, I have a question about your drawing packs."),
