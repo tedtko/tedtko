@@ -1,7 +1,16 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
-import { consultation, invoiceLimits, packages, site } from "@/lib/site";
+import { VAT_RATE, consultation, invoiceLimits, packages, site } from "@/lib/site";
+
+const vatLine = (netPounds: number): Stripe.Checkout.SessionCreateParams.LineItem => ({
+  quantity: 1,
+  price_data: {
+    currency: "gbp",
+    unit_amount: Math.round(netPounds * 100 * VAT_RATE),
+    product_data: { name: `VAT (${Math.round(VAT_RATE * 100)}%)` },
+  },
+});
 
 export const runtime = "nodejs";
 
@@ -42,6 +51,7 @@ export async function POST(req: Request) {
             },
           },
         },
+        vatLine(pkg.price),
       ],
       phone_number_collection: { enabled: true },
       billing_address_collection: "required",
@@ -71,6 +81,7 @@ export async function POST(req: Request) {
             },
           },
         },
+        vatLine(consultation.price),
       ],
       phone_number_collection: { enabled: true },
       custom_fields: [

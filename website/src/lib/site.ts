@@ -95,7 +95,12 @@ export const consultation = {
     "The full consultation fee is deducted from your drawing package or build price if you go ahead with us.",
 };
 
-// Limits for the "Pay an invoice" page (in pounds).
+// VAT added on top of package and consultation prices (shown as "+ VAT").
+export const VAT_RATE = 0.2;
+export const incVat = (pounds: number) => Math.round(pounds * (1 + VAT_RATE) * 100) / 100;
+
+// Limits for the "Pay an invoice" page (in pounds). Invoice amounts are
+// entered by the client as the total due, so no VAT is added.
 export const invoiceLimits = { min: 1, max: 100000 };
 
 export const services = [

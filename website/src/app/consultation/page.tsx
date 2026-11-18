@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { consultation, formatGBP, site } from "@/lib/site";
+import { consultation, formatGBP, incVat, site } from "@/lib/site";
 import CheckoutButton from "@/components/CheckoutButton";
 import { IconClock, IconLock, IconPin } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Book a Consultation & Site Survey",
-  description: `Book an on-site design consultation anywhere in London for ${formatGBP(consultation.price)}, deducted from your project if you go ahead.`,
+  description: `Book an on-site design consultation anywhere in London for ${formatGBP(consultation.price)} + VAT, deducted from your project if you go ahead.`,
 };
 
 export default async function ConsultationPage({ searchParams }: { searchParams: Promise<{ cancelled?: string }> }) {
@@ -34,9 +34,10 @@ export default async function ConsultationPage({ searchParams }: { searchParams:
           <div className="card">
             {cancelled && <p className="alert alert-error">Payment cancelled. You have not been charged.</p>}
             <h3>{consultation.name}</h3>
-            <div className="price">{formatGBP(consultation.price)}</div>
+            <div className="price">{formatGBP(consultation.price)} <small>+ VAT</small></div>
+            <p className="note" style={{ margin: 0 }}>{formatGBP(incVat(consultation.price))} inc. VAT</p>
             <p className="alert alert-success" style={{ margin: "16px 0 20px" }}>{consultation.deductedNote}</p>
-            <CheckoutButton payload={{ type: "consultation" }}>Book &amp; pay {formatGBP(consultation.price)}</CheckoutButton>
+            <CheckoutButton payload={{ type: "consultation" }}>Book &amp; pay {formatGBP(incVat(consultation.price))} inc. VAT</CheckoutButton>
             <p className="secure"><IconLock size={16} /> Secure payment by Stripe. You&apos;ll add your postcode and preferred date at checkout.</p>
             <p className="note" style={{ marginTop: 16 }}>
               Prefer to talk first? Call <a href={site.phoneHref}>{site.phoneDisplay}</a> or{" "}

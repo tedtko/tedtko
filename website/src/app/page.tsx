@@ -68,7 +68,7 @@ export default function Home() {
             <Link href="/consultation" className="card service-card" style={{ textDecoration: "none", color: "inherit", background: "var(--ink)", borderColor: "var(--ink)" }}>
               <div className="icon" style={{ background: "var(--green)", color: "#fff" }}><IconPin size={26} /></div>
               <h3 style={{ color: "#fff" }}>Book a site survey</h3>
-              <p style={{ color: "#b9c1c6" }}>{formatGBP(consultation.price)} on-site consultation, deducted from your project if you go ahead.</p>
+              <p style={{ color: "#b9c1c6" }}>{formatGBP(consultation.price)} + VAT on-site consultation, deducted from your project if you go ahead.</p>
             </Link>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function Home() {
               <li>Measured survey, existing &amp; proposed plans and elevations</li>
               <li>Planning applications &amp; building control handled</li>
               <li>3D visuals so you can see it before it&apos;s built</li>
-              <li>Fixed fees from {formatGBP(packages[0].price)} to {formatGBP(packages[packages.length - 1].price)}, payable securely online</li>
+              <li>Fixed fees from {formatGBP(packages[0].price)} to {formatGBP(packages[packages.length - 1].price)} + VAT, payable securely online</li>
             </ul>
             <div className="btn-row">
               <Link href="/planning-drawings" className="btn btn-primary">View drawing packages</Link>

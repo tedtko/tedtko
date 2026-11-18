@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { consultation, formatGBP, packages } from "@/lib/site";
+import { consultation, formatGBP, incVat, packages } from "@/lib/site";
 import CheckoutButton from "@/components/CheckoutButton";
 import { Elevation, FloorPlan, Section3D } from "@/components/Illustrations";
 import { IconLock } from "@/components/Icons";
@@ -8,7 +8,7 @@ import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "Planning & Drawing Packages",
-  description: "Fixed-price planning and architectural drawing packages from £5,000 to £12,000. Planning applications, building regulations and 3D visuals across London.",
+  description: "Fixed-price planning and architectural drawing packages from £5,000 to £12,000 + VAT. Planning applications, building regulations and 3D visuals across London.",
 };
 
 export default async function DrawingsPage({ searchParams }: { searchParams: Promise<{ cancelled?: string }> }) {
@@ -21,7 +21,7 @@ export default async function DrawingsPage({ searchParams }: { searchParams: Pro
           <h1>Fixed-price drawing packages</h1>
           <p className="lead">
             Architectural drawings, planning applications and building regulations packages, produced in-house and
-            paid securely online. Packages from {formatGBP(packages[0].price)}.
+            paid securely online. Packages from {formatGBP(packages[0].price)} + VAT.
           </p>
         </div>
       </section>
@@ -39,13 +39,14 @@ export default async function DrawingsPage({ searchParams }: { searchParams: Pro
                 {p.featured && <span className="badge">Most popular</span>}
                 <h3>{p.name}</h3>
                 <p style={{ color: "var(--muted)", margin: 0 }}>{p.summary}</p>
-                <div className="price">{formatGBP(p.price)} <small>fixed fee</small></div>
+                <div className="price">{formatGBP(p.price)} <small>+ VAT</small></div>
+                <p className="note" style={{ margin: 0 }}>Fixed fee · {formatGBP(incVat(p.price))} inc. VAT</p>
                 <div className="best-for"><strong>Best for:</strong> {p.bestFor}</div>
                 <ul className="ticks">
                   {p.includes.map((i) => <li key={i}>{i}</li>)}
                 </ul>
                 <CheckoutButton payload={{ type: "package", id: p.id }} className={`btn ${p.featured ? "btn-primary" : "btn-outline"} btn-block`}>
-                  Buy {p.name}: {formatGBP(p.price)}
+                  Buy {p.name}: {formatGBP(p.price)} + VAT
                 </CheckoutButton>
               </div>
             ))}
@@ -54,7 +55,7 @@ export default async function DrawingsPage({ searchParams }: { searchParams: Pro
             <IconLock size={16} /> Secure checkout by Stripe. Council planning and building control fees are paid separately.
           </p>
           <p className="center note">
-            Not sure which package you need? <Link href="/consultation">Book a {formatGBP(consultation.price)} consultation</Link>; the fee is
+            Not sure which package you need? <Link href="/consultation">Book a {formatGBP(consultation.price)} + VAT consultation</Link>; the fee is
             deducted if you go ahead. Or <Link href="/quote">ask us for advice</Link>.
           </p>
         </div>
