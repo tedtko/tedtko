@@ -32,7 +32,7 @@ const jsonLd = {
   legalName: site.legalName,
   url: site.url,
   email: site.supportEmail,
-  telephone: "+447598610612",
+  telephone: "+447933574769",
   areaServed: { "@type": "Country", name: "United Kingdom" },
   description: "Remote architectural CAD drafting and planning drawing packs delivered digitally.",
 };
