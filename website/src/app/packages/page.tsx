@@ -3,7 +3,7 @@ import { PackagesGrid, PageHero } from "@/components/Sections";
 
 export const metadata: Metadata = {
   title: "Drawing Packages & Prices",
-  description: "Fixed-fee remote architectural CAD drawing packs: Essential £5,000, Standard £8,000 and Premium £12,000 (+ VAT). Delivered digitally in PDF & DWG.",
+  description: "Fixed-fee remote architectural CAD drawing packs: Essential £1,850, Standard £3,250 and Premium £4,950 (+ VAT). Delivered digitally in PDF & DWG.",
 };
 
 export default async function PackagesPage({ searchParams }: { searchParams: Promise<{ cancelled?: string }> }) {

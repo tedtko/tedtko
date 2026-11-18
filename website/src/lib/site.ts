@@ -15,7 +15,7 @@ export const site = {
   // Companies Act 2006 disclosures (fill these in).
   companyNumber: "17279876",
   registeredOffice: "Flat 1-4, 67 Wellesley Road, Croydon, England, CR0 2AJ",
-  vatNumber: "", // e.g. "GB123456789". Hidden until filled in.
+  vatNumber: "GB 523 1091 33",
 
   // Contact
   supportEmail: "trtanev23@gmail.com", // change to support@yourdomain.co.uk when you have it
@@ -45,7 +45,7 @@ export const packages: Package[] = [
   {
     id: "essential",
     name: "Essential",
-    price: 5000,
+    price: 1850,
     subtitle: "Digital planning drawing pack for straightforward extensions, porches & outbuildings.",
     deliverables: [
       "Digital CAD base plan, drafted remotely from your measurements, sketches & photos",
@@ -59,7 +59,7 @@ export const packages: Package[] = [
   {
     id: "standard",
     name: "Standard",
-    price: 8000,
+    price: 3250,
     featured: true,
     subtitle: "Complete digital planning & building regulations drawing pack for double-storey extensions & loft conversions.",
     deliverables: [
@@ -74,7 +74,7 @@ export const packages: Package[] = [
   {
     id: "premium",
     name: "Premium",
-    price: 12000,
+    price: 4950,
     subtitle: "Comprehensive remote design & technical specification pack for new builds, full refurbishments & multi-unit conversions.",
     deliverables: [
       "Everything in the Standard pack",
