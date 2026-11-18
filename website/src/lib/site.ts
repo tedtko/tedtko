@@ -13,7 +13,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
 
   // Companies Act 2006 disclosures (fill these in).
-  companyNumber: "", // e.g. "12345678". Hidden until filled in.
+  companyNumber: "17279876",
   registeredOffice: "Flat 1-4, 67 Wellesley Road, Croydon, England, CR0 2AJ",
   vatNumber: "", // e.g. "GB123456789". Hidden until filled in.
 
