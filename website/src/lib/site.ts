@@ -10,7 +10,7 @@ export const site = {
   tradingName: "Fair Trade Design Studio",
   legalName: "Fair Trade 23 Limited",
   tagline: "Remote Architectural CAD Drawings",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://fairtradedesign.pro",
 
   // Companies Act 2006 disclosures (fill these in).
   companyNumber: "17279876",
