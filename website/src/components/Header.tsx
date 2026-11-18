@@ -4,49 +4,55 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { site } from "@/lib/site";
-import { IconClose, IconMenu, IconPhone } from "./Icons";
+import { IconClose, IconMenu, LogoMark } from "./Icons";
 
 const links = [
-  { href: "/services", label: "Services" },
-  { href: "/planning-drawings", label: "Planning & Drawings" },
-  { href: "/projects", label: "Projects" },
-  { href: "/consultation", label: "Book a Survey" },
-  { href: "/pay", label: "Pay Invoice" },
+  { href: "/packages", label: "Packages" },
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/sample-deliverables", label: "Sample Deliverables" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
+
+export function Wordmark({ light = false }: { light?: boolean }) {
+  return (
+    <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <LogoMark size={40} />
+      <span style={{ lineHeight: 1.05 }}>
+        <span style={{ display: "block", fontFamily: "var(--display)", fontWeight: 800, fontSize: "1.12rem", letterSpacing: "-0.01em", color: light ? "#fff" : "var(--ink)" }}>
+          Fair Trade
+        </span>
+        <span style={{ display: "block", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: light ? "#8fd0aa" : "var(--green)" }}>
+          Design Studio
+        </span>
+      </span>
+    </span>
+  );
+}
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const close = () => setOpen(false);
 
   return (
-    <>
-      <div className="topbar">
-        <div className="container">
-          <span>Based in {site.base} · Working {site.coverage}</span>
-          <a href={site.phoneHref}>Call {site.phoneDisplay}</a>
-        </div>
-      </div>
-      <header className="header">
-        <div className="container">
-          <Link href="/" className="brand" aria-label={`${site.name} home`} onClick={() => setOpen(false)}>
-            <img src="/logo.png" alt={site.name} width={94} height={62} />
-          </Link>
-          <button className="menu-toggle" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}>
-            {open ? <IconClose size={28} /> : <IconMenu size={28} />}
-          </button>
-          <nav className={`nav${open ? " open" : ""}`} aria-label="Main">
-            {links.map((l) => (
-              <Link key={l.href} href={l.href} aria-current={pathname === l.href ? "page" : undefined} onClick={() => setOpen(false)}>
-                {l.label}
-              </Link>
-            ))}
-            <Link href="/quote" className="btn btn-primary" onClick={() => setOpen(false)}>
-              <IconPhone size={16} /> Free Quote
+    <header className="header">
+      <div className="container">
+        <Link href="/" className="brand" aria-label={`${site.tradingName}, home`} onClick={close}>
+          <Wordmark />
+        </Link>
+        <button className="menu-toggle" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
+          {open ? <IconClose size={28} /> : <IconMenu size={28} />}
+        </button>
+        <nav id="main-nav" className={`nav${open ? " open" : ""}`} aria-label="Main">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} aria-current={pathname === l.href ? "page" : undefined} onClick={close}>
+              {l.label}
             </Link>
-          </nav>
-        </div>
-      </header>
-    </>
+          ))}
+          <Link href="/packages" className="btn btn-primary" onClick={close}>View Drawing Packages</Link>
+        </nav>
+      </div>
+    </header>
   );
 }

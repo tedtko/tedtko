@@ -27,10 +27,11 @@ export async function POST(req: Request) {
       .map((f) => `${f.label.custom}: ${f.text?.value || "-"}`)
       .join("\n");
     const text = [
-      `New online payment received.`,
+      `New online order received. Ask the customer to upload measurements at /intake if they have not already.`,
       ``,
       `Type: ${s.metadata?.kind || "unknown"}${s.metadata?.package ? ` (${s.metadata.package} package)` : ""}`,
-      s.metadata?.invoiceNumber ? `Invoice: ${s.metadata.invoiceNumber}` : "",
+      s.metadata?.reference ? `Reference: ${s.metadata.reference}` : "",
+      s.metadata?.requested_immediate_start ? `Requested immediate start: ${s.metadata.requested_immediate_start}` : "",
       `Amount: £${((s.amount_total || 0) / 100).toFixed(2)}`,
       `Name: ${s.customer_details?.name || s.metadata?.name || "-"}`,
       `Email: ${s.customer_details?.email || "-"}`,

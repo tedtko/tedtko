@@ -1,36 +1,33 @@
 import type { Metadata } from "next";
-import { boroughs, site } from "@/lib/site";
-import QuoteForm from "@/components/QuoteForm";
-import { IconMail, IconPhone, IconPin, IconWhatsApp } from "@/components/Icons";
+import { site } from "@/lib/site";
+import IntakeForm from "@/components/IntakeForm";
+import { PageHero } from "@/components/Sections";
+import { IconMail, IconPhone, IconWhatsApp } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${site.name}: Croydon-based builders working across London. Call, WhatsApp or email us.`,
+  description: `Contact ${site.tradingName}. Questions about our remote drawing packs answered within ${site.responseTime}.`,
 };
 
 export default function ContactPage() {
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <span className="eyebrow">Get in touch</span>
-          <h1>Contact us</h1>
-          <p className="lead">Call, WhatsApp or send us a message. We&apos;re happy to talk through any project.</p>
-        </div>
-      </section>
+      <PageHero eyebrow="Get in touch" title="Contact us" lead={`Questions before you order? We reply within ${site.responseTime}.`} />
       <section className="section">
-        <div className="container split" style={{ alignItems: "start" }}>
+        <div className="container split">
           <div>
             <ul className="contact-list">
-              <li><div className="stat-icon"><IconPhone /></div><div><a href={site.phoneHref}>{site.phoneDisplay}</a><small>Phone</small></div></li>
-              <li><div className="stat-icon" style={{ background: "#e3f8ea", color: "#128c3e" }}><IconWhatsApp /></div><div><a href={site.whatsappHref} target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a><small>Quickest way to send photos</small></div></li>
-              <li><div className="stat-icon"><IconMail /></div><div><a href={`mailto:${site.email}`}>{site.email}</a><small>Email</small></div></li>
-              <li><div className="stat-icon"><IconPin /></div><div><strong>{site.base}, London</strong><small>Covering all {boroughs.length} London boroughs</small></div></li>
+              <li><div className="ico"><IconMail /></div><div><a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a><small>Email, the best way to reach us</small></div></li>
+              <li><div className="ico"><IconPhone /></div><div><a href={site.phoneHref}>{site.phoneDisplay}</a><small>Phone</small></div></li>
+              <li><div className="ico"><IconWhatsApp /></div><div><a href={site.whatsappHref} target="_blank" rel="noopener noreferrer">Message us on WhatsApp<span className="sr-only"> (opens in a new tab)</span></a><small>Quick questions</small></div></li>
             </ul>
+            <div className="notice" style={{ marginTop: 28 }}>
+              Already ordered? <a href="/intake">Upload your measurements and photos here</a>.
+            </div>
           </div>
           <div className="card">
-            <h3>Send us a message</h3>
-            <QuoteForm />
+            <h2 style={{ fontSize: "1.4rem" }}>Send us a message</h2>
+            <IntakeForm kind="contact" />
           </div>
         </div>
       </section>

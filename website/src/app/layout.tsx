@@ -1,57 +1,52 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 import { site } from "@/lib/site";
+
+// Fonts are downloaded at build time and served from this site,
+// so visitors' browsers never contact Google.
+const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const manrope = Manrope({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-head", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Builders, Refurbishment & Planning Drawings in Croydon & London`,
-    template: `%s | ${site.shortName}`,
+    default: `${site.tradingName} | Remote Architectural CAD Drawings & Planning Packs`,
+    template: `%s | ${site.tradingName}`,
   },
   description:
-    "Fair Trade 23 Limited: Croydon-based building and renovation experts working across London. New builds, extensions, loft conversions, full refurbishments, planning and architectural drawings.",
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    siteName: site.name,
-    images: ["/logo.png"],
-  },
+    "Fixed-fee 2D & 3D architectural design packs, floor plans and building regulations drawings produced remotely from your measurements and photos. Delivered digitally in PDF & DWG.",
+  openGraph: { type: "website", locale: "en_GB", siteName: site.tradingName },
   icons: { icon: "/icon.svg" },
 };
 
-export const viewport: Viewport = { themeColor: "#1c2124" };
+export const viewport: Viewport = { themeColor: "#17643c" };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "GeneralContractor",
-  name: site.name,
+  "@type": "ProfessionalService",
+  name: site.tradingName,
+  legalName: site.legalName,
   url: site.url,
+  email: site.supportEmail,
   telephone: "+447598610612",
-  email: site.email,
-  image: `${site.url}/logo.png`,
-  address: { "@type": "PostalAddress", addressLocality: "Croydon", addressRegion: "London", addressCountry: "GB" },
-  areaServed: { "@type": "City", name: "London" },
-  priceRange: "££££",
+  areaServed: { "@type": "Country", name: "United Kingdom" },
+  description: "Remote architectural CAD drafting and planning drawing packs delivered digitally.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
-        />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </head>
+    <html lang="en-GB" className={`${inter.variable} ${manrope.variable}`}>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <a href="#main" className="skip">Skip to content</a>
         <Header />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

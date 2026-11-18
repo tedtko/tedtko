@@ -7,7 +7,12 @@ export function mailConfigured() {
   return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
 }
 
-export async function sendMail(opts: { subject: string; text: string; replyTo?: string }) {
+export async function sendMail(opts: {
+  subject: string;
+  text: string;
+  replyTo?: string;
+  attachments?: { filename: string; content: Buffer; contentType?: string }[];
+}) {
   if (!mailConfigured()) throw new Error("SMTP is not configured");
   const port = Number(process.env.SMTP_PORT || 465);
   const transporter = nodemailer.createTransport({
@@ -17,10 +22,11 @@ export async function sendMail(opts: { subject: string; text: string; replyTo?: 
     auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
   });
   await transporter.sendMail({
-    from: `"${site.shortName} Website" <${process.env.SMTP_USER}>`,
-    to: process.env.ENQUIRY_EMAIL || site.email,
+    from: `"${site.tradingName} Website" <${process.env.SMTP_USER}>`,
+    to: process.env.ENQUIRY_EMAIL || site.supportEmail,
     replyTo: opts.replyTo,
     subject: opts.subject,
     text: opts.text,
+    attachments: opts.attachments,
   });
 }

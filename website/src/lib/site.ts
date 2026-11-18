@@ -1,154 +1,151 @@
 // ---------------------------------------------------------------------------
-// Fair Trade 23 Limited: site content and prices.
-// Edit this file to change phone numbers, prices, package contents, services
-// or areas covered. Everything on the website reads from here.
+// Site content, company details and prices.
+// Edit this file to change anything shown on the website.
+//
+// BEFORE GOING LIVE: fill in companyNumber, registeredOffice and vatNumber.
+// UK law (Companies Act 2006) requires them on your website.
 // ---------------------------------------------------------------------------
 
 export const site = {
-  name: "Fair Trade 23 Limited",
-  shortName: "Fair Trade 23",
-  tagline: "Building & Renovation Experts",
+  tradingName: "Fair Trade Design Studio",
+  legalName: "Fair Trade 23 Limited",
+  tagline: "Remote Architectural CAD Drawings",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+
+  // Companies Act 2006 disclosures (fill these in).
+  companyNumber: "[Companies House Number]",
+  registeredOffice: "[Registered Office Address]",
+  vatNumber: "[VAT Number]", // set to "" to hide the line if not VAT registered
+
+  // Contact
+  supportEmail: "trtanev23@gmail.com", // change to support@yourdomain.co.uk when you have it
   phoneDisplay: "+44 7598 610612",
   phoneHref: "tel:+447598610612",
   whatsappHref:
     "https://wa.me/447598610612?text=" +
-    encodeURIComponent("Hi Fair Trade 23, I'd like to discuss a project."),
-  email: "trtanev23@gmail.com",
-  base: "Croydon",
-  coverage: "all across London",
-  yearsTrading: "10+",
+    encodeURIComponent("Hi, I have a question about your drawing packs."),
+  responseTime: "2 business days",
 };
+
+export const VAT_RATE = 0.2;
+export const incVat = (pounds: number) => Math.round(pounds * (1 + VAT_RATE) * 100) / 100;
 
 export type Package = {
   id: string;
   name: string;
-  price: number; // in pounds
-  summary: string;
-  bestFor: string;
-  includes: string[];
+  price: number; // pounds, excluding VAT
+  subtitle: string;
+  deliverables: string[];
+  revisions: string;
+  timeline: string;
   featured?: boolean;
 };
 
-// Planning & drawing packages, sold in full through Stripe Checkout.
 export const packages: Package[] = [
   {
     id: "essential",
     name: "Essential",
     price: 5000,
-    summary: "Planning drawings for straightforward projects.",
-    bestFor: "Single-storey extensions, porches, outbuildings",
-    includes: [
-      "Full measured survey of the property",
-      "Existing floor plans & elevations",
-      "Proposed floor plans & elevations",
-      "Site & location plans",
-      "Planning application prepared & submitted",
-      "Liaison with the council planning officer",
+    subtitle: "Digital planning drawing pack for straightforward extensions, porches & outbuildings.",
+    deliverables: [
+      "Digital CAD base plan, drafted remotely from your measurements, sketches & photos",
+      "Existing & proposed 2D floor plans & elevations (PDF & DWG)",
+      "Scaled site & location reference plans (digital PDF pack)",
+      "Planning submission-ready drawing set, formatted for portal upload",
     ],
+    revisions: "1 digital revision round (within 14 days of first draft delivery)",
+    timeline: "5–7 business days from receipt of your measurements",
   },
   {
     id: "standard",
     name: "Standard",
     price: 8000,
-    summary: "Planning plus building regulations, ready to build.",
-    bestFor: "Double-storey & wrap-around extensions, loft conversions",
     featured: true,
-    includes: [
-      "Everything in Essential",
-      "Sections & detailed proposed drawings",
-      "3D visuals of the finished design",
-      "Building regulations drawings & notes",
-      "Building control application handled",
-      "Two rounds of design revisions",
+    subtitle: "Complete digital planning & building regulations drawing pack for double-storey extensions & loft conversions.",
+    deliverables: [
+      "Everything in the Essential pack",
+      "Detailed cross-sections & technical construction detail sheets (PDF & DWG)",
+      "3D exterior & massing visual renders (high-res images)",
+      "Building regulations annotated technical drawing pack",
     ],
+    revisions: "2 digital revision rounds (within 14 days of first draft delivery)",
+    timeline: "7–10 business days from receipt of your measurements",
   },
   {
     id: "premium",
     name: "Premium",
     price: 12000,
-    summary: "The complete design package for major projects.",
-    bestFor: "New builds, full refurbishments, multi-unit conversions",
-    includes: [
-      "Everything in Standard",
-      "Structural calculations (with our engineer)",
-      "Full construction specification & tender pack",
-      "Party wall guidance & neighbour liaison",
-      "Unlimited revisions within the agreed scope",
-      "Priority turnaround & a dedicated project lead",
+    subtitle: "Comprehensive remote design & technical specification pack for new builds, full refurbishments & multi-unit conversions.",
+    deliverables: [
+      "Everything in the Standard pack",
+      "Technical specification & schedule of works document (PDF/DOCX)",
+      "Boundary, daylight & elevation reference drawing set",
+      "Full tender-ready digital CAD & PDF drawing bundle",
     ],
+    revisions: "Up to 3 digital revision rounds (within 21 days of first draft delivery)",
+    timeline: "Priority: 10–14 business days from receipt of your measurements",
   },
 ];
 
-// Paid design consultation / site survey.
-export const consultation = {
-  price: 250, // in pounds
-  name: "Design consultation & site survey",
-  duration: "Around 1 hour on site",
-  includes: [
-    "Visit to your property anywhere in London",
-    "Discuss your ideas, budget and timescales",
-    "Advice on planning permission vs permitted development",
-    "Recommendation of the right drawing package",
+// Cancellation charge applied once your intake has been reviewed but before
+// the first draft is issued (see /refund-policy).
+export const setupFee = 500;
+
+// Limits for the "Pay a balance" page (pounds, total due including VAT).
+export const invoiceLimits = { min: 1, max: 20000 };
+
+export const steps = [
+  {
+    title: "Select your fixed-scope digital pack",
+    text: "Choose Essential, Standard or Premium and complete your order online.",
+  },
+  {
+    title: "Upload your measurements & photos",
+    text: "Send your hand-drawn measurements, property photos, estate agent floor plans and project brief through our secure online intake form.",
+  },
+  {
+    title: "Remote CAD drafting & 3D modelling",
+    text: "Our UK CAD design team produces your scaled architectural drawings and technical packs remotely.",
+  },
+  {
+    title: "Digital delivery & revisions",
+    text: "Receive watermarked review PDFs by email, request your included revision round(s), then download your final unwatermarked PDF & DWG files.",
+  },
+];
+
+export const faqs: [string, string][] = [
+  [
+    "Do you visit my property?",
+    "No. We're a 100% remote design studio. Every drawing is produced from the measurements, sketches and photos you send us, so we never visit your property.",
   ],
-  deductedNote:
-    "The full consultation fee is deducted from your drawing package or build price if you go ahead with us.",
-};
-
-// VAT added on top of package and consultation prices (shown as "+ VAT").
-export const VAT_RATE = 0.2;
-export const incVat = (pounds: number) => Math.round(pounds * (1 + VAT_RATE) * 100) / 100;
-
-// Limits for the "Pay an invoice" page (in pounds). Invoice amounts are
-// entered by the client as the total due, so no VAT is added.
-export const invoiceLimits = { min: 1, max: 100000 };
-
-export const services = [
-  {
-    slug: "new-builds",
-    title: "New Builds",
-    text: "From groundworks to handover, we build new homes and developments to a high standard, on time and on budget.",
-  },
-  {
-    slug: "renovations",
-    title: "Full Refurbishments",
-    text: "Complete house renovations: strip-out, rewiring, replastering, flooring, decoration and everything in between.",
-  },
-  {
-    slug: "extensions",
-    title: "Extensions",
-    text: "Single-storey, double-storey, side-return and wrap-around extensions that add space and value to your home.",
-  },
-  {
-    slug: "loft-conversions",
-    title: "Loft Conversions",
-    text: "Dormer, hip-to-gable and mansard lofts, turning unused roof space into bedrooms, bathrooms and offices.",
-  },
-  {
-    slug: "bathrooms",
-    title: "Bathrooms",
-    text: "Bathroom and en-suite refits with quality tiling, plumbing and finishes.",
-  },
-  {
-    slug: "planning-drawings",
-    title: "Planning & Drawings",
-    text: "Architectural drawings, planning applications and building regulations packages, all handled in-house.",
-  },
-  {
-    slug: "project-management",
-    title: "Project Management",
-    text: "One point of contact managing trades, suppliers, building control and timelines from start to finish.",
-  },
-];
-
-export const boroughs = [
-  "Croydon", "Sutton", "Bromley", "Merton", "Lambeth", "Southwark",
-  "Wandsworth", "Lewisham", "Greenwich", "Kingston", "Richmond",
-  "Westminster", "Camden", "Islington", "Hackney", "Tower Hamlets",
-  "Barnet", "Ealing", "Hounslow", "Harrow", "Brent", "Enfield",
-  "Haringey", "Newham", "Redbridge", "Waltham Forest", "Barking & Dagenham",
-  "Havering", "Bexley", "Hillingdon", "Hammersmith & Fulham",
-  "Kensington & Chelsea",
+  [
+    "What do I need to send you?",
+    "Rough measurements of each room and the outside of the property (a hand sketch is fine), photos of every elevation and the rooms affected, any existing floor plans (e.g. from an estate agent listing), and a short description of what you want to build.",
+  ],
+  [
+    "How accurate do my measurements need to be?",
+    "As accurate as you can make them. We draft to the dimensions you give us, so errors carry through to the drawings. We'll flag anything that looks inconsistent, but you're responsible for the accuracy of what you submit (see our Terms).",
+  ],
+  [
+    "What file formats will I receive?",
+    "PDF drawings ready to print or upload to a planning portal, plus editable DWG CAD files. The Standard and Premium packs also include high-res 3D render images, and Premium includes a PDF/DOCX specification.",
+  ],
+  [
+    "Do you submit the planning application for me?",
+    "We supply a submission-ready drawing set formatted for the Planning Portal. You submit it and pay the council's fees. We're happy to explain what goes where.",
+  ],
+  [
+    "Are structural calculations or council fees included?",
+    "No. Structural engineering calculations, council planning and building control fees, and any physical building work are not included.",
+  ],
+  [
+    "Can I pay in stages?",
+    "Yes. On request we can split the fee into a 50% booking deposit and 50% before your final CAD/DWG files are released. Get in touch before ordering.",
+  ],
+  [
+    "Can I cancel?",
+    "Yes. UK consumers have a 14-day cancellation right. If you ask us to start work within that period, we may charge for work already done. Full details are in our Refund & Cancellation Policy.",
+  ],
 ];
 
 export const formatGBP = (pounds: number) =>
@@ -157,3 +154,5 @@ export const formatGBP = (pounds: number) =>
     currency: "GBP",
     maximumFractionDigits: pounds % 1 === 0 ? 0 : 2,
   }).format(pounds);
+
+export const LAST_UPDATED = "18 November 2026"; // date shown on the legal pages
