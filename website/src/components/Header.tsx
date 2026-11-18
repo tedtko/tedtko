@@ -11,6 +11,7 @@ const links = [
   { href: "/how-it-works", label: "How It Works" },
   { href: "/sample-deliverables", label: "Sample Deliverables" },
   { href: "/faq", label: "FAQ" },
+  { href: "/pay", label: "Pay Invoice" },
   { href: "/contact", label: "Contact" },
 ];
 

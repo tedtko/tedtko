@@ -92,7 +92,7 @@ export async function POST(req: Request) {
       );
     }
     if (!reference || !name || !/^\S+@\S+\.\S+$/.test(email)) {
-      return NextResponse.json({ error: "Please fill in your name, email and order/invoice reference." }, { status: 400 });
+      return NextResponse.json({ error: "Please fill in your name, email and invoice number." }, { status: 400 });
     }
     params = {
       mode: "payment",
@@ -104,14 +104,14 @@ export async function POST(req: Request) {
             currency: "gbp",
             unit_amount: Math.round(amount * 100),
             product_data: {
-              name: `Drawing pack balance: ${reference}`,
+              name: `Invoice ${reference}`,
               description: `Payment to ${site.legalName} t/a ${site.tradingName}`,
             },
           },
         },
       ],
-      payment_intent_data: { description: `Balance ${reference} - ${name}` },
-      metadata: { kind: "balance", reference, name },
+      payment_intent_data: { description: `Invoice ${reference} - ${name}` },
+      metadata: { kind: "invoice", reference, name },
       success_url,
       cancel_url: `${origin}/pay?cancelled=1`,
     };

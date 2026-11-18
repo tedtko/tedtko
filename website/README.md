@@ -13,7 +13,7 @@ Prices, package contents, FAQs and the legal pages' "last updated" date are in t
 
 ## Pages
 `/` home · `/packages` · `/how-it-works` · `/sample-deliverables` · `/faq` · `/contact`
-`/intake` (customers upload measurements after ordering) · `/pay` (stage/balance payments)
+`/intake` (customers upload measurements after ordering) · `/pay` (pay an invoice, any amount, via Stripe)
 `/terms` · `/refund-policy` · `/privacy-policy` · `/cookie-policy`
 
 ## Payments

@@ -91,7 +91,7 @@ export const packages: Package[] = [
 // the first draft is issued (see /refund-policy).
 export const setupFee = 500;
 
-// Limits for the "Pay a balance" page (pounds, total due including VAT).
+// Limits for the "Pay an invoice" page (pounds, total due including VAT).
 export const invoiceLimits = { min: 1, max: 20000 };
 
 export const steps = [

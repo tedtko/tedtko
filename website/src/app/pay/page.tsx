@@ -4,9 +4,8 @@ import { PageHero } from "@/components/Sections";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Pay a Balance",
-  description: `Pay a drawing pack balance or stage payment to ${site.tradingName}.`,
-  robots: { index: false },
+  title: "Pay an Invoice",
+  description: `Pay your ${site.tradingName} invoice securely online by card, Apple Pay or Google Pay.`,
 };
 
 export default async function PayPage({ searchParams }: { searchParams: Promise<{ cancelled?: string }> }) {
@@ -15,8 +14,8 @@ export default async function PayPage({ searchParams }: { searchParams: Promise<
     <>
       <PageHero
         eyebrow="Existing clients"
-        title="Pay a balance"
-        lead="For agreed stage payments on drawing packs. Enter the reference and amount (inc. VAT) shown on your invoice."
+        title="Pay an invoice"
+        lead="Pay your invoice securely by card, Apple Pay or Google Pay. Enter the invoice number and the total due (inc. VAT) shown on your invoice."
       />
       <section className="section">
         <div className="container" style={{ maxWidth: 760 }}>

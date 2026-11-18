@@ -27,7 +27,7 @@ export default function Footer() {
                 <li><Link href="/sample-deliverables">Sample deliverables</Link></li>
                 <li><Link href="/faq">FAQ</Link></li>
                 <li><Link href="/intake">Upload measurements</Link></li>
-                <li><Link href="/pay">Pay a balance</Link></li>
+                <li><Link href="/pay">Pay an invoice</Link></li>
               </ul>
             </div>
             <div>

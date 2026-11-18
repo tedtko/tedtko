@@ -36,7 +36,7 @@ export default function InvoiceForm() {
       </div>
       <div className="form-row">
         <div className="field">
-          <label htmlFor="inv-ref">Order or invoice reference</label>
+          <label htmlFor="inv-ref">Invoice number</label>
           <input id="inv-ref" name="reference" required />
         </div>
         <div className="field">
@@ -46,7 +46,7 @@ export default function InvoiceForm() {
       </div>
       {error && <p className="alert alert-error" role="alert">{error}</p>}
       <button className="btn btn-primary" type="submit" disabled={loading}>
-        {loading ? "Opening secure checkout…" : "Continue to secure payment"}
+        {loading ? "Opening secure checkout…" : "Pay invoice securely"}
       </button>
       <p className="secure"><IconLock size={16} /> Card details are entered on our payment provider&apos;s secure page. We never see or store them.</p>
     </form>
