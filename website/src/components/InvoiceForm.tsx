@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { invoiceLimits } from "@/lib/site";
-import type { Locale } from "@/i18n/config";
+import { currencyFor, type Locale } from "@/i18n/config";
 import type { Dict } from "@/i18n/types";
 import { startCheckout } from "./CheckoutButton";
 import { IconLock } from "./Icons";
@@ -37,10 +37,17 @@ export default function InvoiceForm({ locale, f, errors }: { locale: Locale; f: 
           <input id="inv-email" name="email" type="email" required autoComplete="email" />
         </div>
       </div>
+      <div className="field">
+        <label htmlFor="inv-ref">{f.invNumber}</label>
+        <input id="inv-ref" name="reference" required />
+      </div>
       <div className="form-row">
         <div className="field">
-          <label htmlFor="inv-ref">{f.invNumber}</label>
-          <input id="inv-ref" name="reference" required />
+          <label htmlFor="inv-currency">{f.invCurrency}</label>
+          <select id="inv-currency" name="currency" defaultValue={currencyFor(locale)}>
+            <option value="EUR">€ EUR</option>
+            <option value="GBP">£ GBP</option>
+          </select>
         </div>
         <div className="field">
           <label htmlFor="inv-amount">{f.invAmount}</label>

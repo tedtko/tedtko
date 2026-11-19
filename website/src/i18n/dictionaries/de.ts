@@ -1,9 +1,10 @@
 import type { Dict } from "../types";
-import { money } from "../config";
+import { currencyFor, money } from "../config";
 import { invoiceLimits, packages, setupFee, site as S } from "@/lib/site";
 
 const m = (n: number) => money(n, "de");
-const P = Object.fromEntries(packages.map((p) => [p.id, p.price])) as Record<string, number>;
+const C = currencyFor("de");
+const P = Object.fromEntries(packages.map((p) => [p.id, p.price[C]])) as Record<string, number>;
 const mail = `[${S.supportEmail}](mailto:${S.supportEmail})`;
 const RT = "2 Werktagen";
 
@@ -199,7 +200,7 @@ const de: Dict = {
     sentContact: `Vielen Dank. Wir haben Ihre Nachricht erhalten und melden uns innerhalb von ${RT}.`,
     privacy: "Wir verwenden Ihre Angaben nur, um Ihre Zeichnungen zu liefern und Ihnen zu antworten. Siehe [Datenschutzerklärung](/privacy-policy).",
     accuracy: "Mit dem Absenden bestätigen Sie, dass die übermittelten Maße und Angaben nach bestem Wissen korrekt sind.",
-    invName: "Ihr Name", invEmail: "E-Mail für die Quittung", invNumber: "Rechnungsnummer", invAmount: "Fälliger Betrag inkl. MwSt. (£)",
+    invName: "Ihr Name", invEmail: "E-Mail für die Quittung", invNumber: "Rechnungsnummer", invAmount: "Fälliger Betrag inkl. MwSt.", invCurrency: "Rechnungswährung",
     invSubmit: "Rechnung sicher bezahlen", opening: "Sicherer Checkout wird geöffnet…",
     secure: "Zahlungsdaten geben Sie auf der sicheren Seite unseres Zahlungsanbieters ein. Ihre Kartendaten sehen oder speichern wir nie.",
   },
@@ -307,7 +308,7 @@ const de: Dict = {
           "Das vollständige Urheberrecht (bzw. die umfassenden Nutzungsrechte) an den finalen CAD/PDF-Zeichnungen **geht mit vollständigem Zahlungseingang auf Sie über**, soweit gesetzlich zulässig. Bis dahin bleiben die Zeichnungen unser Eigentum und dürfen nicht verwendet oder eingereicht werden. Unsere Standardvorlagen, Schriftfelder und allgemeinen Details bleiben unser Eigentum; Sie erhalten ein dauerhaftes Nutzungsrecht im Rahmen Ihrer Zeichnungen. Ihr Projekt zeigen wir nur mit Ihrer Zustimmung im Portfolio.",
         ] },
         { h: "10. Widerruf & Erstattung", body: [
-          `Ihre Widerrufsrechte und die Erstattungsbeträge sind in unserer [Widerrufs- & Erstattungsrichtlinie](/refund-policy) geregelt, die Bestandteil dieser Bedingungen ist. Kurz gefasst: volle Erstattung vor Beginn der Zeichenarbeit; Erstattung abzüglich einer Einrichtungsgebühr von ${m(setupFee)} nach Prüfung Ihrer Unterlagen, aber vor dem ersten Entwurf; nach Lieferung des ersten Entwurfs in der Regel keine Erstattung.`,
+          `Ihre Widerrufsrechte und die Erstattungsbeträge sind in unserer [Widerrufs- & Erstattungsrichtlinie](/refund-policy) geregelt, die Bestandteil dieser Bedingungen ist. Kurz gefasst: volle Erstattung vor Beginn der Zeichenarbeit; Erstattung abzüglich einer Einrichtungsgebühr von ${m(setupFee[C])} nach Prüfung Ihrer Unterlagen, aber vor dem ersten Entwurf; nach Lieferung des ersten Entwurfs in der Regel keine Erstattung.`,
         ] },
         { h: "11. Haftung", body: [
           { ul: [
@@ -349,7 +350,7 @@ const de: Dict = {
           "Diese Stufen zeigen, wie wir den Wert der erbrachten Leistungen berechnen. Sie gelten für alle Bestellungen, unabhängig davon, ob Sie innerhalb oder nach Ablauf der 14 Tage stornieren.",
           { table: { head: ["Zeitpunkt der Stornierung", "Erstattung"], rows: [
             ["Bevor Sie Ihre Maße übermittelt haben und bevor die CAD-Zeichenarbeit begonnen hat", "**100 % volle Erstattung**"],
-            ["Nachdem wir mit der Prüfung Ihrer Unterlagen (Maße, Fotos, Beschreibung) begonnen haben, aber vor Lieferung der ersten Entwurfs-PDFs", `**Volle Erstattung abzüglich einer Einrichtungsgebühr von ${m(setupFee)}** (zzgl. MwSt., sofern anwendbar) für Prüfung, Einrichtung und Grundzeichnung`],
+            ["Nachdem wir mit der Prüfung Ihrer Unterlagen (Maße, Fotos, Beschreibung) begonnen haben, aber vor Lieferung der ersten Entwurfs-PDFs", `**Volle Erstattung abzüglich einer Einrichtungsgebühr von ${m(setupFee[C])}** (zzgl. MwSt., sofern anwendbar) für Prüfung, Einrichtung und Grundzeichnung`],
             ["Nach Lieferung des ersten Entwurfs-PDF-Satzes", "**In der Regel keine Erstattung.** Die individuelle Zeichenarbeit ist im Wesentlichen abgeschlossen. Ist ein wesentlicher Teil Ihres Pakets noch nicht erbracht, erstatten wir dafür einen angemessenen Betrag."],
           ] } },
           "Unternehmer haben kein gesetzliches Widerrufsrecht, können aber jederzeit zu denselben Erstattungsstufen stornieren.",
@@ -489,7 +490,7 @@ const de: Dict = {
           ] },
         ] },
         { h: "5. Preise, Umsatzsteuer & Währung", body: [
-          "Preise werden in britischen Pfund (GBP) zzgl. 20 % britischer Mehrwertsteuer angegeben; der Bruttobetrag wird ebenfalls angezeigt. Ihr Kartenanbieter kann eigene Wechselkurse oder Gebühren berechnen. Für Immobilien außerhalb des Vereinigten Königreichs können andere Umsatzsteuerregeln gelten; bitte kontaktieren Sie uns vor der Bestellung, damit wir die korrekte Behandlung bestätigen.",
+          "Auf unserer deutschen, französischen, spanischen und italienischen Website werden Preise in Euro (EUR) angezeigt und berechnet, auf der englischen Website in britischen Pfund (GBP). Jede Währung hat eine eigene feste Preisliste (keine Umrechnung zu Tageskursen) – der angezeigte Preis ist der Preis, den Sie zahlen. Preise verstehen sich zzgl. 20 % britischer Mehrwertsteuer; der Bruttobetrag wird ebenfalls angezeigt. Ihr Kartenanbieter kann eigene Wechselkurse oder Gebühren berechnen. Für Immobilien außerhalb des Vereinigten Königreichs können andere Umsatzsteuerregeln gelten; bitte kontaktieren Sie uns vor der Bestellung, damit wir die korrekte Behandlung bestätigen.",
         ] },
         { h: "6. Anwendbares Recht, Gerichtsstand & Streitbeilegung", body: [
           "Für unsere Verträge gilt das Recht von **England und Wales**. Als Verbraucher wird Ihnen dadurch nicht der Schutz der zwingenden Vorschriften des Rechts Ihres Wohnsitzlandes entzogen, und Sie können gegebenenfalls vor den Gerichten Ihres Landes klagen.",

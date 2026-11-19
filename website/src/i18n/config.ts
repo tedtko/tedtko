@@ -43,11 +43,14 @@ export function t(str: string, vars: Record<string, string | number> = {}) {
   return str.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? String(vars[k]) : m));
 }
 
-export function money(pounds: number, locale: Locale) {
+/** English site uses pounds; the European language sites use euros. */
+export const currencyFor = (locale: Locale): "GBP" | "EUR" => (locale === "en" ? "GBP" : "EUR");
+
+export function money(amount: number, locale: Locale, currency: "GBP" | "EUR" = currencyFor(locale)) {
   return new Intl.NumberFormat(intlTag[locale], {
     style: "currency",
-    currency: "GBP",
+    currency,
     currencyDisplay: "narrowSymbol",
-    maximumFractionDigits: pounds % 1 === 0 ? 0 : 2,
-  }).format(pounds);
+    maximumFractionDigits: amount % 1 === 0 ? 0 : 2,
+  }).format(amount);
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { incVat, packages } from "@/lib/site";
-import { lp, money, t, type Locale } from "@/i18n/config";
+import { currencyFor, lp, money, t, type Locale } from "@/i18n/config";
 import type { Block, Dict, LegalDoc } from "@/i18n/types";
 import OrderButton from "./OrderButton";
 import Rich from "./Rich";
@@ -14,14 +14,15 @@ export function PackagesGrid({ locale, d }: { locale: Locale; d: Dict }) {
       <div className="grid grid-3 pricing">
         {packages.map((pk) => {
           const tx = p.items[pk.id];
-          const price = money(pk.price, locale);
+          const net = pk.price[currencyFor(locale)];
+          const price = money(net, locale);
           return (
             <article key={pk.id} className={`card price-card${pk.featured ? " featured" : ""}`} aria-labelledby={`pkg-${pk.id}`}>
               {pk.featured && <span className="badge">{p.popular}</span>}
               <h3 id={`pkg-${pk.id}`}>{tx.name}</h3>
               <p className="sub">{tx.subtitle}</p>
               <div className="price">{price} <small>{p.plusVat}</small></div>
-              <p className="inc">{t(p.incVat, { amount: money(incVat(pk.price), locale) })}</p>
+              <p className="inc">{t(p.incVat, { amount: money(incVat(net), locale) })}</p>
               <ul className="ticks">
                 {tx.deliverables.map((x) => <li key={x}>{x}</li>)}
               </ul>

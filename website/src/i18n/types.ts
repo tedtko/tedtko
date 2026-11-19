@@ -64,7 +64,7 @@ export type Dict = {
     files: string; filesHint: string; link: string; linkHint: string; brief: string; briefPlaceholder: string;
     message: string; sendIntake: string; sendContact: string; sending: string; sentIntake: string; sentContact: string;
     privacy: string; accuracy: string;
-    invName: string; invEmail: string; invNumber: string; invAmount: string; invSubmit: string; opening: string; secure: string;
+    invName: string; invEmail: string; invNumber: string; invAmount: string; invCurrency: string; invSubmit: string; opening: string; secure: string;
   };
   errors: Record<"terms_required" | "missing_fields" | "invalid_amount" | "unavailable" | "too_large" | "bad_type" | "generic", string>;
   success: {

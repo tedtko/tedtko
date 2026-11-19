@@ -1,9 +1,10 @@
 import type { Dict } from "../types";
-import { money } from "../config";
+import { currencyFor, money } from "../config";
 import { invoiceLimits, packages, setupFee, site as S } from "@/lib/site";
 
 const m = (n: number) => money(n, "fr");
-const P = Object.fromEntries(packages.map((p) => [p.id, p.price])) as Record<string, number>;
+const C = currencyFor("fr");
+const P = Object.fromEntries(packages.map((p) => [p.id, p.price[C]])) as Record<string, number>;
 const mail = `[${S.supportEmail}](mailto:${S.supportEmail})`;
 const RT = "2 jours ouvrés";
 
@@ -199,7 +200,7 @@ const fr: Dict = {
     sentContact: `Merci. Nous avons bien reçu votre message et vous répondrons sous ${RT}.`,
     privacy: "Vos données servent uniquement à livrer vos plans et à vous répondre. Voir notre [Politique de confidentialité](/privacy-policy).",
     accuracy: "En envoyant ce formulaire, vous confirmez que les mesures et informations fournies sont exactes à votre connaissance.",
-    invName: "Votre nom", invEmail: "E-mail pour le reçu", invNumber: "Numéro de facture", invAmount: "Montant dû TTC (£)",
+    invName: "Votre nom", invEmail: "E-mail pour le reçu", invNumber: "Numéro de facture", invAmount: "Montant dû TTC", invCurrency: "Devise de la facture",
     invSubmit: "Payer la facture en toute sécurité", opening: "Ouverture du paiement sécurisé…",
     secure: "Vos données de paiement sont saisies sur la page sécurisée de notre prestataire. Nous ne voyons ni ne conservons jamais vos données de carte.",
   },
@@ -307,7 +308,7 @@ const fr: Dict = {
           "Les droits d'auteur (ou, à défaut, l'ensemble des droits d'exploitation cessibles) sur les plans CAO/PDF finaux **vous sont transférés dès réception du paiement intégral**, dans la mesure permise par la loi. Jusque-là, les plans restent notre propriété et ne doivent pas être utilisés ni déposés. Nos modèles, cartouches et détails génériques restent notre propriété ; vous bénéficiez d'une licence permanente pour les utiliser dans vos plans. Nous ne présentons votre projet dans notre portfolio qu'avec votre accord.",
         ] },
         { h: "10. Annulation & remboursement", body: [
-          `Vos droits d'annulation et les montants remboursés figurent dans notre [Politique de remboursement et d'annulation](/refund-policy), qui fait partie des présentes conditions. En résumé : remboursement intégral avant le début du dessin ; remboursement moins des frais de mise en place de ${m(setupFee)} après examen de votre dossier mais avant le premier projet ; en principe aucun remboursement après livraison du premier projet.`,
+          `Vos droits d'annulation et les montants remboursés figurent dans notre [Politique de remboursement et d'annulation](/refund-policy), qui fait partie des présentes conditions. En résumé : remboursement intégral avant le début du dessin ; remboursement moins des frais de mise en place de ${m(setupFee[C])} après examen de votre dossier mais avant le premier projet ; en principe aucun remboursement après livraison du premier projet.`,
         ] },
         { h: "11. Responsabilité", body: [
           { ul: [
@@ -349,7 +350,7 @@ const fr: Dict = {
           "Ces paliers indiquent comment nous évaluons le travail effectué. Ils s'appliquent à toutes les commandes, que vous annuliez pendant ou après le délai de 14 jours.",
           { table: { head: ["Moment de l'annulation", "Montant remboursé"], rows: [
             ["Avant l'envoi de vos mesures et avant le début du dessin CAO", "**Remboursement intégral (100 %)**"],
-            ["Après le début de l'examen de votre dossier (mesures, photos, descriptif), mais avant l'envoi des premiers PDF de projet", `**Remboursement intégral moins des frais de mise en place de ${m(setupFee)}** (HT, TVA en sus le cas échéant), couvrant l'examen, la mise en place et le dessin de base`],
+            ["Après le début de l'examen de votre dossier (mesures, photos, descriptif), mais avant l'envoi des premiers PDF de projet", `**Remboursement intégral moins des frais de mise en place de ${m(setupFee[C])}** (HT, TVA en sus le cas échéant), couvrant l'examen, la mise en place et le dessin de base`],
             ["Après la livraison du premier jeu de PDF de projet", "**En principe non remboursable.** Le travail de dessin sur mesure est pour l'essentiel réalisé. Si une partie substantielle de votre formule n'a pas encore été exécutée, nous remboursons un montant équitable pour cette partie."],
           ] } },
           "Les clients professionnels ne bénéficient pas du droit légal de rétractation mais peuvent annuler à tout moment selon les mêmes paliers.",
@@ -489,7 +490,7 @@ const fr: Dict = {
           ] },
         ] },
         { h: "5. Prix, TVA & devise", body: [
-          "Les prix sont indiqués en livres sterling (GBP), hors TVA britannique de 20 %, le total TTC étant également affiché. Votre banque peut appliquer son propre taux de change ou des frais. Pour les biens situés hors du Royaume-Uni, d'autres règles de TVA peuvent s'appliquer ; contactez-nous avant de commander afin que nous confirmions le traitement correct.",
+          "Sur nos sites allemand, français, espagnol et italien, les prix sont affichés et facturés en euros (EUR) ; sur notre site anglais, en livres sterling (GBP). Chaque devise dispose de sa propre grille de prix fixes (aucune conversion au cours du jour) : le prix affiché est le prix payé. Les prix s'entendent hors TVA britannique de 20 %, le total TTC étant également affiché. Votre banque peut appliquer son propre taux de change ou des frais. Pour les biens situés hors du Royaume-Uni, d'autres règles de TVA peuvent s'appliquer ; contactez-nous avant de commander afin que nous confirmions le traitement correct.",
         ] },
         { h: "6. Droit applicable, juridiction & litiges", body: [
           "Nos contrats sont régis par le droit de **l'Angleterre et du pays de Galles**. Si vous êtes consommateur, cela ne vous prive pas de la protection des dispositions impératives du droit de votre pays de résidence, et vous pouvez le cas échéant saisir les tribunaux de votre pays.",

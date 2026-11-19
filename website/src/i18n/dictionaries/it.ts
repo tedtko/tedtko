@@ -1,9 +1,10 @@
 import type { Dict } from "../types";
-import { money } from "../config";
+import { currencyFor, money } from "../config";
 import { invoiceLimits, packages, setupFee, site as S } from "@/lib/site";
 
 const m = (n: number) => money(n, "it");
-const P = Object.fromEntries(packages.map((p) => [p.id, p.price])) as Record<string, number>;
+const C = currencyFor("it");
+const P = Object.fromEntries(packages.map((p) => [p.id, p.price[C]])) as Record<string, number>;
 const mail = `[${S.supportEmail}](mailto:${S.supportEmail})`;
 const RT = "2 giorni lavorativi";
 
@@ -199,7 +200,7 @@ const it: Dict = {
     sentContact: `Grazie. Abbiamo ricevuto il suo messaggio e le risponderemo entro ${RT}.`,
     privacy: "Usiamo i suoi dati solo per consegnare i disegni e risponderle. Veda la nostra [Informativa sulla privacy](/privacy-policy).",
     accuracy: "Inviando, conferma che le misure e le informazioni fornite sono esatte per quanto a sua conoscenza.",
-    invName: "Il suo nome", invEmail: "E-mail per la ricevuta", invNumber: "Numero fattura", invAmount: "Importo dovuto, IVA inclusa (£)",
+    invName: "Il suo nome", invEmail: "E-mail per la ricevuta", invNumber: "Numero fattura", invAmount: "Importo dovuto, IVA inclusa", invCurrency: "Valuta della fattura",
     invSubmit: "Paga la fattura in sicurezza", opening: "Apertura del pagamento sicuro…",
     secure: "I dati di pagamento si inseriscono sulla pagina sicura del nostro fornitore. Non vediamo né conserviamo mai i dati della sua carta.",
   },
@@ -307,7 +308,7 @@ const it: Dict = {
           "Il diritto d'autore (o, ove non trasferibile, tutti i diritti di utilizzazione economica cedibili) sui disegni CAD/PDF finali **le viene trasferito al ricevimento del pagamento completo**, nei limiti di legge. Fino ad allora i disegni restano di nostra proprietà e non devono essere usati né presentati. Modelli, cartigli e dettagli generici restano nostri, ma lei ha una licenza permanente per utilizzarli nei suoi disegni. Mostreremo il suo progetto nel nostro portfolio solo con il suo consenso.",
         ] },
         { h: "10. Recesso e rimborsi", body: [
-          `I suoi diritti di recesso e gli importi rimborsabili sono indicati nella nostra [Politica di rimborso e recesso](/refund-policy), parte integrante dei presenti termini. In sintesi: rimborso integrale prima dell'inizio del disegno; rimborso meno una quota di avvio di ${m(setupFee)} dopo l'esame della documentazione ma prima della prima bozza; di norma nessun rimborso dopo la consegna della prima bozza.`,
+          `I suoi diritti di recesso e gli importi rimborsabili sono indicati nella nostra [Politica di rimborso e recesso](/refund-policy), parte integrante dei presenti termini. In sintesi: rimborso integrale prima dell'inizio del disegno; rimborso meno una quota di avvio di ${m(setupFee[C])} dopo l'esame della documentazione ma prima della prima bozza; di norma nessun rimborso dopo la consegna della prima bozza.`,
         ] },
         { h: "11. Responsabilità", body: [
           { ul: [
@@ -349,7 +350,7 @@ const it: Dict = {
           "Queste fasce indicano come valutiamo il lavoro svolto. Si applicano a tutti gli ordini, sia che lei receda entro sia dopo i 14 giorni.",
           { table: { head: ["Quando annulla", "Cosa le viene rimborsato"], rows: [
             ["Prima di aver inviato le misure e prima dell'inizio del disegno CAD", "**Rimborso integrale (100%)**"],
-            ["Dopo l'avvio dell'esame della documentazione (misure, foto e descrizione), ma prima dell'invio dei primi PDF di bozza", `**Rimborso integrale meno una quota di avvio di ${m(setupFee)}** (+ IVA ove applicabile), a copertura di esame, impostazione e disegno di base`],
+            ["Dopo l'avvio dell'esame della documentazione (misure, foto e descrizione), ma prima dell'invio dei primi PDF di bozza", `**Rimborso integrale meno una quota di avvio di ${m(setupFee[C])}** (+ IVA ove applicabile), a copertura di esame, impostazione e disegno di base`],
             ["Dopo la consegna del primo set di PDF di bozza", "**Di norma non rimborsabile.** Il lavoro di disegno su misura è sostanzialmente completato. Se una parte sostanziale del pacchetto non è ancora stata eseguita, rimborseremo un importo equo per tale parte."],
           ] } },
           "I clienti professionali non hanno il diritto di recesso previsto dalla legge, ma possono annullare in qualsiasi momento secondo le stesse fasce.",
@@ -489,7 +490,7 @@ const it: Dict = {
           ] },
         ] },
         { h: "5. Prezzi, IVA e valuta", body: [
-          "I prezzi sono indicati in sterline britanniche (GBP) IVA britannica del 20% esclusa, con il totale IVA inclusa anch'esso indicato. La sua banca può applicare un proprio tasso di cambio o commissioni. Per immobili fuori dal Regno Unito possono applicarsi regole IVA diverse; ci contatti prima di ordinare per confermare il trattamento corretto.",
+          "Sui nostri siti in tedesco, francese, spagnolo e italiano i prezzi sono indicati e addebitati in euro (EUR); sul sito in inglese in sterline britanniche (GBP). Ogni valuta ha un proprio listino a prezzi fissi (nessuna conversione al cambio del giorno): il prezzo indicato è quello che paga. I prezzi si intendono IVA britannica del 20% esclusa, con il totale IVA inclusa anch'esso indicato. La sua banca può applicare un proprio tasso di cambio o commissioni. Per immobili fuori dal Regno Unito possono applicarsi regole IVA diverse; ci contatti prima di ordinare per confermare il trattamento corretto.",
         ] },
         { h: "6. Legge applicabile, foro e controversie", body: [
           "I nostri contratti sono regolati dalla legge di **Inghilterra e Galles**. Se è un consumatore, ciò non la priva della tutela delle norme inderogabili della legge del suo Paese di residenza e potrà, se del caso, rivolgersi ai tribunali del suo Paese.",

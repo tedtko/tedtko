@@ -1,24 +1,24 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
-import { VAT_RATE, invoiceLimits, packages, site } from "@/lib/site";
-import { defaultLocale, isLocale, lp, type Locale } from "@/i18n/config";
+import { VAT_RATE, invoiceLimits, packages, site, type Currency } from "@/lib/site";
+import { currencyFor, defaultLocale, isLocale, lp, type Locale } from "@/i18n/config";
 
 export const runtime = "nodejs";
 
 type Body =
   | { type: "package"; id: string; agreeTerms: boolean; requestStart: boolean; locale?: string }
-  | { type: "invoice"; amount: number | string; reference: string; name: string; email: string; locale?: string };
+  | { type: "invoice"; amount: number | string; reference: string; name: string; email: string; currency?: string; locale?: string };
 
 const clean = (v: unknown, max = 100) => String(v ?? "").trim().slice(0, max);
 // Errors return a code; the browser shows the message in the visitor's language.
 const fail = (code: string, status = 400) => NextResponse.json({ code }, { status });
 
-const vatLine = (netPounds: number): Stripe.Checkout.SessionCreateParams.LineItem => ({
+const vatLine = (net: number, currency: Currency): Stripe.Checkout.SessionCreateParams.LineItem => ({
   quantity: 1,
   price_data: {
-    currency: "gbp",
-    unit_amount: Math.round(netPounds * 100 * VAT_RATE),
+    currency: currency.toLowerCase(),
+    unit_amount: Math.round(net * 100 * VAT_RATE),
     product_data: { name: `UK VAT (${Math.round(VAT_RATE * 100)}%)` },
   },
 });
@@ -43,9 +43,14 @@ export async function POST(req: Request) {
     if (!pkg) return fail("generic");
     if (!body.agreeTerms) return fail("terms_required");
 
+    // English site: pounds. German/French/Spanish/Italian sites: euros.
+    const currency = currencyFor(locale);
+    const net = pkg.price[currency];
+
     // Optional: send customers to a hosted payment link (e.g. Dodo Payments or a
-    // Stripe Payment Link) instead. Set PAYMENT_LINK_ESSENTIAL etc.
-    const link = process.env[`PAYMENT_LINK_${pkg.id.toUpperCase()}`];
+    // Stripe Payment Link) instead. Set PAYMENT_LINK_ESSENTIAL (pounds) and
+    // PAYMENT_LINK_ESSENTIAL_EUR (euros), etc.
+    const link = process.env[`PAYMENT_LINK_${pkg.id.toUpperCase()}${currency === "EUR" ? "_EUR" : ""}`];
     if (link) return NextResponse.json({ url: link });
 
     const name = pkg.id.charAt(0).toUpperCase() + pkg.id.slice(1);
@@ -56,12 +61,12 @@ export async function POST(req: Request) {
         {
           quantity: 1,
           price_data: {
-            currency: "gbp",
-            unit_amount: pkg.price * 100,
+            currency: currency.toLowerCase(),
+            unit_amount: Math.round(net * 100),
             product_data: { name: `${name} Digital CAD Drawing Pack`, description: "Remote CAD drafting. Digital delivery (PDF & DWG)." },
           },
         },
-        vatLine(pkg.price),
+        vatLine(net, currency),
       ],
       phone_number_collection: { enabled: true },
       billing_address_collection: "required",
@@ -72,6 +77,7 @@ export async function POST(req: Request) {
       metadata: {
         kind: "package",
         package: pkg.id,
+        currency,
         agreed_terms: "yes",
         requested_immediate_start: body.requestStart ? "yes" : "no",
         consent_time: new Date().toISOString(),
@@ -85,6 +91,7 @@ export async function POST(req: Request) {
     const reference = clean(body.reference, 40);
     const name = clean(body.name, 80);
     const email = clean(body.email, 120);
+    const currency: Currency = String(body.currency).toUpperCase() === "EUR" ? "EUR" : String(body.currency).toUpperCase() === "GBP" ? "GBP" : currencyFor(locale);
     if (!Number.isFinite(amount) || amount < invoiceLimits.min || amount > invoiceLimits.max) return fail("invalid_amount");
     if (!reference || !name || !/^\S+@\S+\.\S+$/.test(email)) return fail("missing_fields");
     params = {
@@ -95,14 +102,14 @@ export async function POST(req: Request) {
         {
           quantity: 1,
           price_data: {
-            currency: "gbp",
+            currency: currency.toLowerCase(),
             unit_amount: Math.round(amount * 100),
             product_data: { name: `Invoice ${reference}`, description: `Payment to ${site.legalName} t/a ${site.tradingName}` },
           },
         },
       ],
       payment_intent_data: { description: `Invoice ${reference} - ${name}` },
-      metadata: { kind: "invoice", reference, name, site_language: locale },
+      metadata: { kind: "invoice", reference, name, currency, site_language: locale },
       success_url,
       cancel_url: `${origin}${lp(locale, "/pay")}?cancelled=1`,
     };

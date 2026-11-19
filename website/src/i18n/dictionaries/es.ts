@@ -1,9 +1,10 @@
 import type { Dict } from "../types";
-import { money } from "../config";
+import { currencyFor, money } from "../config";
 import { invoiceLimits, packages, setupFee, site as S } from "@/lib/site";
 
 const m = (n: number) => money(n, "es");
-const P = Object.fromEntries(packages.map((p) => [p.id, p.price])) as Record<string, number>;
+const C = currencyFor("es");
+const P = Object.fromEntries(packages.map((p) => [p.id, p.price[C]])) as Record<string, number>;
 const mail = `[${S.supportEmail}](mailto:${S.supportEmail})`;
 const RT = "2 días hábiles";
 
@@ -199,7 +200,7 @@ const es: Dict = {
     sentContact: `Gracias. Hemos recibido su mensaje y le responderemos en ${RT}.`,
     privacy: "Usamos sus datos solo para entregar sus planos y responderle. Consulte nuestra [Política de privacidad](/privacy-policy).",
     accuracy: "Al enviar, confirma que las medidas e información facilitadas son exactas según su leal saber.",
-    invName: "Su nombre", invEmail: "Correo para el recibo", invNumber: "Número de factura", invAmount: "Importe, IVA incluido (£)",
+    invName: "Su nombre", invEmail: "Correo para el recibo", invNumber: "Número de factura", invAmount: "Importe, IVA incluido", invCurrency: "Moneda de la factura",
     invSubmit: "Pagar factura de forma segura", opening: "Abriendo el pago seguro…",
     secure: "Los datos de pago se introducen en la página segura de nuestro proveedor. Nunca vemos ni guardamos los datos de su tarjeta.",
   },
@@ -307,7 +308,7 @@ const es: Dict = {
           "Los derechos de autor (o, en su defecto, todos los derechos de explotación transmisibles) sobre los planos CAD/PDF finales **se le transmiten al recibir el pago completo**, en la medida permitida por la ley. Hasta entonces, los planos siguen siendo de nuestra propiedad y no deben usarse ni presentarse. Nuestras plantillas, cajetines y detalles genéricos siguen siendo nuestros, pero usted dispone de una licencia permanente para usarlos en sus planos. Solo mostraremos su proyecto en nuestro portfolio con su permiso.",
         ] },
         { h: "10. Cancelación y reembolsos", body: [
-          `Sus derechos de cancelación y los importes reembolsables figuran en nuestra [Política de reembolso y cancelación](/refund-policy), que forma parte de estos términos. En resumen: reembolso íntegro antes de empezar a dibujar; reembolso menos una tarifa de puesta en marcha de ${m(setupFee)} tras revisar su documentación pero antes del primer borrador; y, por lo general, sin reembolso una vez entregado el primer borrador.`,
+          `Sus derechos de cancelación y los importes reembolsables figuran en nuestra [Política de reembolso y cancelación](/refund-policy), que forma parte de estos términos. En resumen: reembolso íntegro antes de empezar a dibujar; reembolso menos una tarifa de puesta en marcha de ${m(setupFee[C])} tras revisar su documentación pero antes del primer borrador; y, por lo general, sin reembolso una vez entregado el primer borrador.`,
         ] },
         { h: "11. Responsabilidad", body: [
           { ul: [
@@ -349,7 +350,7 @@ const es: Dict = {
           "Estos tramos muestran cómo valoramos el trabajo realizado. Se aplican a todos los pedidos, tanto si cancela dentro como fuera del plazo de 14 días.",
           { table: { head: ["Cuándo cancela", "Qué se le reembolsa"], rows: [
             ["Antes de enviar sus medidas y antes de comenzar el dibujo CAD", "**Reembolso íntegro (100 %)**"],
-            ["Después de que hayamos empezado a revisar su documentación (medidas, fotos y descripción), pero antes de enviar los primeros PDF de borrador", `**Reembolso íntegro menos una tarifa de puesta en marcha de ${m(setupFee)}** (+ IVA cuando corresponda), que cubre la revisión, la preparación y el dibujo base`],
+            ["Después de que hayamos empezado a revisar su documentación (medidas, fotos y descripción), pero antes de enviar los primeros PDF de borrador", `**Reembolso íntegro menos una tarifa de puesta en marcha de ${m(setupFee[C])}** (+ IVA cuando corresponda), que cubre la revisión, la preparación y el dibujo base`],
             ["Después de la entrega del primer juego de PDF de borrador", "**Por lo general, no reembolsable.** El trabajo de dibujo a medida está sustancialmente terminado. Si una parte sustancial de su paquete aún no se ha realizado, le reembolsaremos un importe justo por esa parte."],
           ] } },
           "Los clientes empresariales no tienen el derecho legal de desistimiento, pero pueden cancelar en cualquier momento con los mismos tramos.",
@@ -489,7 +490,7 @@ const es: Dict = {
           ] },
         ] },
         { h: "5. Precios, IVA y moneda", body: [
-          "Los precios se indican en libras esterlinas (GBP) sin el 20 % de IVA británico, mostrándose también el total con IVA. Su banco puede aplicar su propio tipo de cambio o comisiones. Para viviendas fuera del Reino Unido pueden aplicarse otras normas de IVA; contáctenos antes del pedido para confirmar el tratamiento correcto.",
+          "En nuestros sitios en alemán, francés, español e italiano los precios se muestran y cobran en euros (EUR); en el sitio en inglés, en libras esterlinas (GBP). Cada moneda tiene su propia tarifa fija (no convertimos al tipo de cambio del día), por lo que el precio que ve es el que paga. Los precios no incluyen el 20 % de IVA británico; también se muestra el total con IVA. Su banco puede aplicar su propio tipo de cambio o comisiones. Para viviendas fuera del Reino Unido pueden aplicarse otras normas de IVA; contáctenos antes del pedido para confirmar el tratamiento correcto.",
         ] },
         { h: "6. Ley aplicable, tribunales y resolución de disputas", body: [
           "Nuestros contratos se rigen por la ley de **Inglaterra y Gales**. Si es consumidor, ello no le priva de la protección de las disposiciones imperativas de la ley de su país de residencia, y podrá, en su caso, acudir a los tribunales de su país.",

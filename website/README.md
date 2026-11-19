@@ -23,10 +23,15 @@ Never add the protected titles "architect" / "Architekt" / "architecte" / "arqui
 `/terms` · `/refund-policy` · `/privacy-policy` · `/cookie-policy` · `/legal-notice` (Impressum & international terms)
 
 ## Payments
+- **Currency:** the English site shows and charges **pounds (GBP)**; the German, French, Spanish and Italian
+  sites show and charge **euros (EUR)**. Euro prices are fixed in `src/lib/site.ts` (set at £1 = €1.16,
+  rounded to €10) so the price shown is the price charged. Update them there if the exchange rate moves.
+  The Pay Invoice page lets the customer choose GBP or EUR to match their invoice.
 - **Stripe** (default): set `STRIPE_SECRET_KEY`. Checkout adds a 20% VAT line and records the
   customer's consent to the terms and the early-start request (Consumer Contracts Regulations).
 - **Dodo Payments or any hosted payment link:** create one product per pack, then set
-  `PAYMENT_LINK_ESSENTIAL`, `PAYMENT_LINK_STANDARD` and `PAYMENT_LINK_PREMIUM` to the checkout URLs.
+  `PAYMENT_LINK_ESSENTIAL`, `PAYMENT_LINK_STANDARD` and `PAYMENT_LINK_PREMIUM` (pounds) and the same names
+  ending `_EUR` (euros) to the checkout URLs.
   The "Order" buttons will send customers there instead of Stripe. The consent checkboxes still apply.
 
 ## Email (contact & intake forms)

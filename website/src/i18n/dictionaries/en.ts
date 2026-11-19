@@ -1,9 +1,10 @@
 import type { Dict } from "../types";
-import { money } from "../config";
+import { currencyFor, money } from "../config";
 import { invoiceLimits, packages, setupFee, site as S } from "@/lib/site";
 
 const m = (n: number) => money(n, "en");
-const P = Object.fromEntries(packages.map((p) => [p.id, p.price])) as Record<string, number>;
+const C = currencyFor("en");
+const P = Object.fromEntries(packages.map((p) => [p.id, p.price[C]])) as Record<string, number>;
 const mail = `[${S.supportEmail}](mailto:${S.supportEmail})`;
 const RT = "2 business days";
 
@@ -199,7 +200,7 @@ const en: Dict = {
     sentContact: `Thank you. We've received your message and will reply within ${RT}.`,
     privacy: "We use your details only to deliver your drawings and reply to you. See our [Privacy Policy](/privacy-policy).",
     accuracy: "By submitting, you confirm the measurements and information supplied are accurate to the best of your knowledge.",
-    invName: "Your name", invEmail: "Email for receipt", invNumber: "Invoice number", invAmount: "Amount due, inc. VAT (£)",
+    invName: "Your name", invEmail: "Email for receipt", invNumber: "Invoice number", invAmount: "Amount due, inc. VAT", invCurrency: "Invoice currency",
     invSubmit: "Pay invoice securely", opening: "Opening secure checkout…",
     secure: "Payment details are entered on our payment provider's secure page. We never see or store your card details.",
   },
@@ -307,7 +308,7 @@ const en: Dict = {
           "Full copyright in the final CAD/PDF drawings we produce for you **transfers to you on receipt of full, cleared payment**. Until then, the drawings remain our property and must not be used or submitted. Our standard templates, title blocks and generic details remain ours, but you have a permanent licence to use them as part of your drawings. We'll only show your project in our portfolio with your permission.",
         ] },
         { h: "10. Cancellation & refunds", body: [
-          `Your cancellation rights and the amounts we refund are set out in our [Refund & Cancellation Policy](/refund-policy), which forms part of these terms. In summary: full refund before drafting begins; refund less a ${m(setupFee)} set-up charge after your intake has been reviewed but before the first draft; and normally no refund once the first draft set has been delivered.`,
+          `Your cancellation rights and the amounts we refund are set out in our [Refund & Cancellation Policy](/refund-policy), which forms part of these terms. In summary: full refund before drafting begins; refund less a ${m(setupFee[C])} set-up charge after your intake has been reviewed but before the first draft; and normally no refund once the first draft set has been delivered.`,
         ] },
         { h: "11. Our liability", body: [
           { ul: [
@@ -350,7 +351,7 @@ const en: Dict = {
           "These tiers show how we work out the value of work done. They apply to all orders, whether you cancel within or after the 14-day period.",
           { table: { head: ["When you cancel", "What you get back"], rows: [
             ["Before you have submitted your measurements, and before CAD drafting has begun", "**100% full refund**"],
-            ["After we have started reviewing your intake (measurements, photos and brief), but before your first draft PDFs are issued", `**Full refund less a ${m(setupFee)} set-up charge** (+ VAT where applicable), covering intake review, set-up and base drafting work`],
+            ["After we have started reviewing your intake (measurements, photos and brief), but before your first draft PDFs are issued", `**Full refund less a ${m(setupFee[C])} set-up charge** (+ VAT where applicable), covering intake review, set-up and base drafting work`],
             ["After your first draft PDF set has been delivered to you", "**Normally non-refundable.** The bespoke drafting work is substantially complete. If any substantial part of your package has not yet been carried out, we'll refund a fair amount for that part."],
           ] } },
           "Business customers do not have the statutory 14-day right to cancel, but may cancel at any time on the same refund tiers.",
@@ -490,7 +491,7 @@ const en: Dict = {
           ] },
         ] },
         { h: "5. Prices, VAT & currency", body: [
-          "Prices are shown in pounds sterling (GBP) excluding UK VAT at 20%, with the VAT-inclusive total also shown. Your card issuer may apply its own exchange rate or fees. For properties outside the UK, different VAT rules may apply; please contact us before ordering so we can confirm the correct VAT treatment.",
+          "On our English site prices are shown and charged in pounds sterling (GBP); on our German, French, Spanish and Italian sites they are shown and charged in euros (EUR). Each currency has its own fixed price list (we do not convert at live exchange rates), so the price you see is the price you pay. Prices exclude UK VAT at 20%, with the VAT-inclusive total also shown. Your card issuer may apply its own exchange rate or fees. For properties outside the UK, different VAT rules may apply; please contact us before ordering so we can confirm the correct VAT treatment.",
         ] },
         { h: "6. Governing law, courts & disputes", body: [
           "Our contracts are governed by the law of **England and Wales**. If you are a consumer, this does not deprive you of the protection of the mandatory provisions of the law of your country of residence, and you may be able to bring proceedings in the courts of your country.",

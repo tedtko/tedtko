@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       `Type: ${s.metadata?.kind || "unknown"}${s.metadata?.package ? ` (${s.metadata.package} package)` : ""}`,
       s.metadata?.reference ? `Reference: ${s.metadata.reference}` : "",
       s.metadata?.requested_immediate_start ? `Requested immediate start: ${s.metadata.requested_immediate_start}` : "",
-      `Amount: £${((s.amount_total || 0) / 100).toFixed(2)}`,
+      `Amount: ${((s.amount_total || 0) / 100).toFixed(2)} ${(s.currency || "gbp").toUpperCase()}`,
       `Name: ${s.customer_details?.name || s.metadata?.name || "-"}`,
       `Email: ${s.customer_details?.email || "-"}`,
       `Phone: ${s.customer_details?.phone || "-"}`,
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     if (mailConfigured()) {
       try {
         await sendMail({
-          subject: `Payment received: £${((s.amount_total || 0) / 100).toFixed(2)} (${s.metadata?.kind})`,
+          subject: `Payment received: ${((s.amount_total || 0) / 100).toFixed(2)} ${(s.currency || "gbp").toUpperCase()} (${s.metadata?.kind})`,
           text,
           replyTo: s.customer_details?.email || undefined,
         });
