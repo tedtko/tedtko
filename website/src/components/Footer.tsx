@@ -1,12 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { site, whatsappHref } from "@/lib/site";
+import { lp, type Locale } from "@/i18n/config";
+import type { Dict } from "@/i18n/types";
 import { IconWhatsApp } from "./Icons";
 import { Wordmark } from "./Header";
 import { openCookieSettings } from "./CookieBanner";
 
-export default function Footer() {
+export default function Footer({ locale, f, waText }: { locale: Locale; f: Dict["footer"]; waText: string }) {
+  const L = (p: string) => lp(locale, p);
+  const wa = whatsappHref(waText);
   return (
     <>
       <footer className="footer">
@@ -14,59 +18,54 @@ export default function Footer() {
           <div className="footer-grid">
             <div>
               <div style={{ marginBottom: 16 }}><Wordmark light /></div>
-              <p>
-                Remote architectural CAD drawings, 2D &amp; 3D design packs and planning &amp; building regulations
-                drawing files, produced from your measurements and photos and delivered digitally.
-              </p>
+              <p>{f.about}</p>
             </div>
             <div>
-              <h2>Studio</h2>
+              <h2>{f.studio}</h2>
               <ul>
-                <li><Link href="/packages">Drawing packages</Link></li>
-                <li><Link href="/how-it-works">How it works</Link></li>
-                <li><Link href="/sample-deliverables">Sample deliverables</Link></li>
-                <li><Link href="/faq">FAQ</Link></li>
-                <li><Link href="/intake">Upload measurements</Link></li>
-                <li><Link href="/pay">Pay an invoice</Link></li>
+                <li><Link href={L("/packages")}>{f.links.packages}</Link></li>
+                <li><Link href={L("/how-it-works")}>{f.links.how}</Link></li>
+                <li><Link href={L("/sample-deliverables")}>{f.links.samples}</Link></li>
+                <li><Link href={L("/faq")}>{f.links.faq}</Link></li>
+                <li><Link href={L("/intake")}>{f.links.intake}</Link></li>
+                <li><Link href={L("/pay")}>{f.links.pay}</Link></li>
               </ul>
             </div>
             <div>
-              <h2>Legal</h2>
+              <h2>{f.legal}</h2>
               <ul>
-                <li><Link href="/terms">Terms &amp; Conditions</Link></li>
-                <li><Link href="/refund-policy">Refund &amp; Cancellation Policy</Link></li>
-                <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-                <li><Link href="/cookie-policy">Cookie Policy</Link></li>
-                <li><button type="button" className="linkbtn" onClick={openCookieSettings}>Cookie Settings</button></li>
+                <li><Link href={L("/terms")}>{f.links.terms}</Link></li>
+                <li><Link href={L("/refund-policy")}>{f.links.refund}</Link></li>
+                <li><Link href={L("/privacy-policy")}>{f.links.privacy}</Link></li>
+                <li><Link href={L("/cookie-policy")}>{f.links.cookies}</Link></li>
+                <li><Link href={L("/legal-notice")}>{f.links.notice}</Link></li>
+                <li><button type="button" className="linkbtn" onClick={openCookieSettings}>{f.links.cookieSettings}</button></li>
               </ul>
             </div>
             <div>
-              <h2>Contact</h2>
+              <h2>{f.contact}</h2>
               <ul>
                 <li><a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a></li>
                 <li><a href={site.phoneHref}>{site.phoneDisplay}</a></li>
-                <li><a href={site.whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp us<span className="sr-only"> (opens in a new tab)</span></a></li>
-                <li>We reply within {site.responseTime}</li>
+                <li><a href={wa} target="_blank" rel="noopener noreferrer">{f.whatsapp}</a></li>
+                <li>{f.replyWithin}</li>
               </ul>
             </div>
           </div>
           <div className="legal">
-            <p><strong>{site.legalName} trading as {site.tradingName}. Registered in England &amp; Wales.</strong></p>
-            {site.companyNumber && <p>Company Registration Number: {site.companyNumber}</p>}
-            <p>Registered Office: {site.registeredOffice}</p>
-            {site.vatNumber && <p>VAT Number: {site.vatNumber}</p>}
+            <p><strong>{f.registered}</strong></p>
+            <p>{f.companyNo}: {site.companyNumber}</p>
+            <p>{f.office}: {site.registeredOffice}</p>
+            {site.vatNumber && <p>{f.vat}: {site.vatNumber}</p>}
             <p>
-              Email: <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a> | Phone:{" "}
+              {f.email}: <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a> | {f.phone}:{" "}
               <a href={site.phoneHref}>{site.phoneDisplay}</a>
             </p>
-            <p style={{ marginTop: 10 }}>
-              © {new Date().getFullYear()} {site.legalName}. An architectural CAD design &amp; drafting studio. Not
-              registered with the ARB.
-            </p>
+            <p style={{ marginTop: 10 }}>© {new Date().getFullYear()} {site.legalName}. {f.arb}</p>
           </div>
         </div>
       </footer>
-      <a className="wa-float" href={site.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp (opens in a new tab)">
+      <a className="wa-float" href={wa} target="_blank" rel="noopener noreferrer" aria-label={f.whatsapp}>
         <IconWhatsApp size={30} />
       </a>
     </>

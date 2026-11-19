@@ -4,16 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { site } from "@/lib/site";
+import { lp, stripLocale, type Locale } from "@/i18n/config";
+import type { Dict } from "@/i18n/types";
 import { IconClose, IconMenu, LogoMark } from "./Icons";
-
-const links = [
-  { href: "/packages", label: "Packages" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/sample-deliverables", label: "Sample Deliverables" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/pay", label: "Pay Invoice" },
-  { href: "/contact", label: "Contact" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export function Wordmark({ light = false }: { light?: boolean }) {
   return (
@@ -31,28 +25,39 @@ export function Wordmark({ light = false }: { light?: boolean }) {
   );
 }
 
-export default function Header() {
+export default function Header({ locale, nav }: { locale: Locale; nav: Dict["nav"] }) {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const current = stripLocale(usePathname() || "/");
   const close = () => setOpen(false);
+  const links = [
+    { href: "/packages", label: nav.packages },
+    { href: "/how-it-works", label: nav.howItWorks },
+    { href: "/sample-deliverables", label: nav.samples },
+    { href: "/faq", label: nav.faq },
+    { href: "/pay", label: nav.payInvoice },
+    { href: "/contact", label: nav.contact },
+  ];
 
   return (
     <header className="header">
       <div className="container">
-        <Link href="/" className="brand" aria-label={`${site.tradingName}, home`} onClick={close}>
+        <Link href={lp(locale, "/")} className="brand" aria-label={`${site.tradingName}, ${nav.home}`} onClick={close}>
           <Wordmark />
         </Link>
-        <button className="menu-toggle" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
-          {open ? <IconClose size={28} /> : <IconMenu size={28} />}
-        </button>
-        <nav id="main-nav" className={`nav${open ? " open" : ""}`} aria-label="Main">
-          {links.map((l) => (
-            <Link key={l.href} href={l.href} aria-current={pathname === l.href ? "page" : undefined} onClick={close}>
-              {l.label}
-            </Link>
-          ))}
-          <Link href="/packages" className="btn btn-primary" onClick={close}>View Drawing Packages</Link>
-        </nav>
+        <div className="header-right">
+          <nav id="main-nav" className={`nav${open ? " open" : ""}`} aria-label="Main">
+            {links.map((l) => (
+              <Link key={l.href} href={lp(locale, l.href)} aria-current={current === l.href ? "page" : undefined} onClick={close}>
+                {l.label}
+              </Link>
+            ))}
+            <Link href={lp(locale, "/packages")} className="btn btn-primary" onClick={close}>{nav.cta}</Link>
+          </nav>
+          <LanguageSwitcher locale={locale} label={nav.language} />
+          <button className="menu-toggle" aria-label={open ? nav.menuClose : nav.menuOpen} aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
+            {open ? <IconClose size={28} /> : <IconMenu size={28} />}
+          </button>
+        </div>
       </div>
     </header>
   );

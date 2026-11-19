@@ -2,10 +2,10 @@
 
 import { openCookieSettings } from "./CookieBanner";
 
-export default function CookieSettingsButton() {
+export default function CookieSettingsButton({ label }: { label: string }) {
   return (
     <button type="button" className="btn btn-outline" onClick={openCookieSettings}>
-      Open Cookie Settings
+      {label}
     </button>
   );
 }

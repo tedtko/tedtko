@@ -11,10 +11,16 @@ architectural CAD drawing studio. Built with Next.js and deployed on Vercel.
 
 Prices, package contents, FAQs and the legal pages' "last updated" date are in the same file.
 
+## Languages
+English (default, no URL prefix), German `/de`, French `/fr`, Spanish `/es`, Italian `/it`.
+All wording, including legal pages, is in `src/i18n/dictionaries/<lang>.ts`. Company details and prices
+are shared in `src/lib/site.ts`. Each page sets `<html lang>` and hreflang alternates automatically.
+Never add the protected titles "architect" / "Architekt" / "architecte" / "arquitecto" / "architetto".
+
 ## Pages
 `/` home · `/packages` · `/how-it-works` · `/sample-deliverables` · `/faq` · `/contact`
 `/intake` (customers upload measurements after ordering) · `/pay` (pay an invoice, any amount, via Stripe)
-`/terms` · `/refund-policy` · `/privacy-policy` · `/cookie-policy`
+`/terms` · `/refund-policy` · `/privacy-policy` · `/cookie-policy` · `/legal-notice` (Impressum & international terms)
 
 ## Payments
 - **Stripe** (default): set `STRIPE_SECRET_KEY`. Checkout adds a 20% VAT line and records the

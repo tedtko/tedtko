@@ -1,12 +1,18 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
-import { packages, site } from "@/lib/site";
+import type { Locale } from "@/i18n/config";
+import type { Dict } from "@/i18n/types";
+import Rich from "./Rich";
 
 const MAX = 4 * 1024 * 1024;
 
-export default function IntakeForm({ kind = "intake", defaultRef = "" }: { kind?: "intake" | "contact"; defaultRef?: string }) {
+export default function IntakeForm({
+  kind = "intake", defaultRef = "", locale, f, errors, packNames,
+}: {
+  kind?: "intake" | "contact"; defaultRef?: string; locale: Locale;
+  f: Dict["forms"]; errors: Dict["errors"]; packNames: string[];
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
   const intake = kind === "intake";
@@ -15,9 +21,9 @@ export default function IntakeForm({ kind = "intake", defaultRef = "" }: { kind?
     e.preventDefault();
     setError("");
     const fd = new FormData(e.currentTarget);
-    const total = fd.getAll("files").reduce((n, f) => n + (f instanceof File ? f.size : 0), 0);
+    const total = fd.getAll("files").reduce((n, x) => n + (x instanceof File ? x.size : 0), 0);
     if (total > MAX) {
-      setError("Your files are over 4 MB in total. Please share them with a link (e.g. WeTransfer or Google Drive) instead.");
+      setError(errors.too_large);
       setStatus("error");
       return;
     }
@@ -25,51 +31,49 @@ export default function IntakeForm({ kind = "intake", defaultRef = "" }: { kind?
     try {
       const res = await fetch("/api/intake", { method: "POST", body: fd });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(json.error || "Something went wrong.");
+      if (!res.ok) throw new Error(json.code || "generic");
       setStatus("sent");
     } catch (err) {
-      setError((err as Error).message);
+      const code = (err as Error).message as keyof Dict["errors"];
+      setError(errors[code] || errors.generic);
       setStatus("error");
     }
   }
 
   if (status === "sent") {
-    return (
-      <div className="alert alert-success" role="status">
-        Thank you. We&apos;ve received your {intake ? "project details" : "message"} and will reply within {site.responseTime}.
-      </div>
-    );
+    return <div className="alert alert-success" role="status">{intake ? f.sentIntake : f.sentContact}</div>;
   }
 
   return (
     <form className="form" onSubmit={onSubmit} encType="multipart/form-data">
       <input type="hidden" name="kind" value={kind} />
+      <input type="hidden" name="lang" value={locale} />
       <div className="form-row">
         <div className="field">
-          <label htmlFor={`${kind}-name`}>Full name</label>
+          <label htmlFor={`${kind}-name`}>{f.name}</label>
           <input id={`${kind}-name`} name="name" required autoComplete="name" />
         </div>
         <div className="field">
-          <label htmlFor={`${kind}-email`}>Email</label>
+          <label htmlFor={`${kind}-email`}>{f.email}</label>
           <input id={`${kind}-email`} name="email" type="email" required autoComplete="email" />
         </div>
       </div>
       <div className="form-row">
         <div className="field">
-          <label htmlFor={`${kind}-phone`}>Phone <span className="hint">(optional)</span></label>
+          <label htmlFor={`${kind}-phone`}>{f.phone} <span className="hint">{f.optional}</span></label>
           <input id={`${kind}-phone`} name="phone" type="tel" autoComplete="tel" />
         </div>
         {intake ? (
           <div className="field">
-            <label htmlFor="intake-ref">Order reference <span className="hint">(from your confirmation email)</span></label>
+            <label htmlFor="intake-ref">{f.orderRef} <span className="hint">{f.orderRefHint}</span></label>
             <input id="intake-ref" name="reference" defaultValue={defaultRef} />
           </div>
         ) : (
           <div className="field">
-            <label htmlFor="contact-pack">Interested in <span className="hint">(optional)</span></label>
+            <label htmlFor="contact-pack">{f.interested} <span className="hint">{f.optional}</span></label>
             <select id="contact-pack" name="pack" defaultValue="">
-              <option value="">Not sure yet</option>
-              {packages.map((p) => <option key={p.id} value={p.name}>{p.name} pack</option>)}
+              <option value="">{f.notSure}</option>
+              {packNames.map((n) => <option key={n} value={n}>{n} {f.packSuffix}</option>)}
             </select>
           </div>
         )}
@@ -78,38 +82,30 @@ export default function IntakeForm({ kind = "intake", defaultRef = "" }: { kind?
         <>
           <div className="form-row">
             <div className="field">
-              <label htmlFor="intake-pack">Your pack</label>
+              <label htmlFor="intake-pack">{f.yourPack}</label>
               <select id="intake-pack" name="pack" required defaultValue="">
-                <option value="" disabled>Select…</option>
-                {packages.map((p) => <option key={p.id} value={p.name}>{p.name}</option>)}
+                <option value="" disabled>{f.select}</option>
+                {packNames.map((n) => <option key={n} value={n}>{n}</option>)}
               </select>
             </div>
             <div className="field">
-              <label htmlFor="intake-address">Property address &amp; postcode</label>
+              <label htmlFor="intake-address">{f.address}</label>
               <input id="intake-address" name="address" required autoComplete="street-address" />
             </div>
           </div>
           <div className="field">
-            <label htmlFor="intake-files">
-              Measurements, sketches, photos &amp; floor plans{" "}
-              <span className="hint">(JPG, PNG, HEIC, PDF, DWG, DXF or DOCX, up to 4 MB in total)</span>
-            </label>
+            <label htmlFor="intake-files">{f.files} <span className="hint">{f.filesHint}</span></label>
             <input id="intake-files" name="files" type="file" multiple accept=".jpg,.jpeg,.png,.heic,.webp,.pdf,.dwg,.dxf,.doc,.docx,.txt" />
           </div>
           <div className="field">
-            <label htmlFor="intake-link">Link to larger files <span className="hint">(WeTransfer, Google Drive, Dropbox, optional)</span></label>
+            <label htmlFor="intake-link">{f.link} <span className="hint">{f.linkHint}</span></label>
             <input id="intake-link" name="link" type="url" placeholder="https://" />
           </div>
         </>
       )}
       <div className="field">
-        <label htmlFor={`${kind}-message`}>{intake ? "Project brief" : "Your message"}</label>
-        <textarea
-          id={`${kind}-message`}
-          name="message"
-          required
-          placeholder={intake ? "What would you like to build or change? Include ceiling heights, wall thicknesses and any known boundary details." : ""}
-        />
+        <label htmlFor={`${kind}-message`}>{intake ? f.brief : f.message}</label>
+        <textarea id={`${kind}-message`} name="message" required placeholder={intake ? f.briefPlaceholder : ""} />
       </div>
       <div className="hp" aria-hidden>
         <label htmlFor={`${kind}-company`}>Company</label>
@@ -117,11 +113,11 @@ export default function IntakeForm({ kind = "intake", defaultRef = "" }: { kind?
       </div>
       {status === "error" && <p className="alert alert-error" role="alert">{error}</p>}
       <button className="btn btn-primary" type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending…" : intake ? "Submit my project details" : "Send message"}
+        {status === "sending" ? f.sending : intake ? f.sendIntake : f.sendContact}
       </button>
       <p className="fineprint">
-        We use your details only to deliver your drawings and reply to you. See our <Link href="/privacy-policy">Privacy Policy</Link>.
-        {intake && " By submitting, you confirm the measurements and information supplied are accurate to the best of your knowledge."}
+        <Rich text={f.privacy} locale={locale} />
+        {intake && ` ${f.accuracy}`}
       </p>
     </form>
   );

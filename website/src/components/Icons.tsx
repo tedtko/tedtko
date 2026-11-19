@@ -58,3 +58,6 @@ export function LogoMark({ size = 40 }: P) {
     </svg>
   );
 }
+export const IconCard = ({ size }: P) => (
+  <svg {...base(size)}><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+);
