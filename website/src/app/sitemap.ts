@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
-import { locales, lp } from "@/i18n/config";
+import { htmlLang, locales, lp } from "@/i18n/config";
 
 const pages = [
   "/", "/packages", "/how-it-works", "/sample-deliverables", "/faq", "/pay", "/contact",
@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: abs(lp(l, p)),
       changeFrequency: "monthly" as const,
       priority: p === "/" ? 1 : 0.6,
-      alternates: { languages: Object.fromEntries(locales.map((x) => [x, abs(lp(x, p))])) },
+      alternates: { languages: Object.fromEntries(locales.map((x) => [htmlLang[x], abs(lp(x, p))])) },
     })),
   );
 }

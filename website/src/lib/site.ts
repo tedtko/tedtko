@@ -29,29 +29,29 @@ export const whatsappHref = (text: string) =>
 export const VAT_RATE = 0.2;
 export const incVat = (net: number) => Math.round(net * (1 + VAT_RATE) * 100) / 100;
 
-export type Currency = "GBP" | "EUR";
+export type Currency = "GBP" | "EUR" | "USD";
 // Currencies accepted on the Pay Invoice page. USD lets US clients pay in dollars;
 // US bank payments (ACH) appear at Stripe checkout only if enabled and available
 // for your Stripe account.
-export type InvoiceCurrency = Currency | "USD";
+export type InvoiceCurrency = Currency;
 export const invoiceCurrencies: InvoiceCurrency[] = ["GBP", "EUR", "USD"];
 export type PackageId = "essential" | "standard" | "premium";
 
-// The English site charges in pounds; the German, French, Spanish and Italian
-// sites charge in euros. Euro prices are FIXED (not live exchange rates), so the
-// price shown is exactly the price charged at checkout. They were calculated at
-// £1 = €1.16 and rounded to the nearest €10. Change them here if the rate moves.
-export const EUR_RATE = 1.16;
+// The UK English site charges in pounds, the US site in US dollars, and the
+// German, French, Spanish and Italian sites in euros. Prices in each currency are
+// FIXED (not live exchange rates), so the price shown is exactly the price
+// charged at checkout. Calculated at £1 = €1.16 and £1 = $1.27, rounded to the
+// nearest 10. Change them here if the rates move.
 
 // Prices excluding VAT. Wording for each pack is in the dictionaries.
 export const packages: { id: PackageId; price: Record<Currency, number>; featured?: boolean }[] = [
-  { id: "essential", price: { GBP: 1850, EUR: 2150 } },
-  { id: "standard", price: { GBP: 3250, EUR: 3770 }, featured: true },
-  { id: "premium", price: { GBP: 4950, EUR: 5740 } },
+  { id: "essential", price: { GBP: 1850, EUR: 2150, USD: 2350 } },
+  { id: "standard", price: { GBP: 3250, EUR: 3770, USD: 4130 }, featured: true },
+  { id: "premium", price: { GBP: 4950, EUR: 5740, USD: 6290 } },
 ];
 
 // Cancellation charge once the intake has been reviewed, before the first draft.
-export const setupFee: Record<Currency, number> = { GBP: 500, EUR: 580 };
+export const setupFee: Record<Currency, number> = { GBP: 500, EUR: 580, USD: 640 };
 
 // Limits for the "Pay an invoice" page (total due including VAT, either currency).
 export const invoiceLimits = { min: 1, max: 25000 };

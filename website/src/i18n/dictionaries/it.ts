@@ -496,7 +496,7 @@ const it: Dict = {
           ] },
         ] },
         { h: "5. Prezzi, IVA e valuta", body: [
-          "Sui nostri siti in tedesco, francese, spagnolo e italiano i prezzi sono indicati e addebitati in euro (EUR); sul sito in inglese in sterline britanniche (GBP). Ogni valuta ha un proprio listino a prezzi fissi (nessuna conversione al cambio del giorno): il prezzo indicato è quello che paga. I prezzi si intendono IVA britannica del 20% esclusa, con il totale IVA inclusa anch'esso indicato. La sua banca può applicare un proprio tasso di cambio o commissioni. Per immobili fuori dal Regno Unito possono applicarsi regole IVA diverse; ci contatti prima di ordinare per confermare il trattamento corretto.",
+          "Sui nostri siti in tedesco, francese, spagnolo e italiano i prezzi sono indicati e addebitati in euro (EUR); sul sito in inglese per il Regno Unito in sterline britanniche (GBP) e sul sito USA in dollari statunitensi (USD). Ogni valuta ha un proprio listino a prezzi fissi (nessuna conversione al cambio del giorno): il prezzo indicato è quello che paga. I prezzi si intendono IVA britannica del 20% esclusa, con il totale IVA inclusa anch'esso indicato. La sua banca può applicare un proprio tasso di cambio o commissioni. Per immobili fuori dal Regno Unito possono applicarsi regole IVA diverse; ci contatti prima di ordinare per confermare il trattamento corretto.",
         ] },
         { h: "6. Legge applicabile, foro e controversie", body: [
           "I nostri contratti sono regolati dalla legge di **Inghilterra e Galles**. Se è un consumatore, ciò non la priva della tutela delle norme inderogabili della legge del suo Paese di residenza e potrà, se del caso, rivolgersi ai tribunali del suo Paese.",

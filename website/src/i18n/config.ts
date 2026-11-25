@@ -1,20 +1,32 @@
-export const locales = ["en", "de", "fr", "es", "it"] as const;
+export const locales = ["en", "us", "de", "fr", "es", "it"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 
 export const isLocale = (v: string): v is Locale => (locales as readonly string[]).includes(v);
 
 export const localeNames: Record<Locale, string> = {
-  en: "English",
+  en: "English (UK)",
+  us: "English (US)",
   de: "Deutsch",
   fr: "Français",
   es: "Español",
   it: "Italiano",
 };
 
+// Value for <html lang> and hreflang tags.
+export const htmlLang: Record<Locale, string> = {
+  en: "en-GB",
+  us: "en-US",
+  de: "de",
+  fr: "fr",
+  es: "es",
+  it: "it",
+};
+
 // Used for number/currency formatting and Open Graph.
 export const intlTag: Record<Locale, string> = {
   en: "en-GB",
+  us: "en-US",
   de: "de-DE",
   fr: "fr-FR",
   es: "es-ES",
@@ -43,8 +55,9 @@ export function t(str: string, vars: Record<string, string | number> = {}) {
   return str.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? String(vars[k]) : m));
 }
 
-/** English site uses pounds; the European language sites use euros. */
-export const currencyFor = (locale: Locale): "GBP" | "EUR" => (locale === "en" ? "GBP" : "EUR");
+/** UK site: pounds. US site: US dollars. European language sites: euros. */
+export const currencyFor = (locale: Locale): "GBP" | "EUR" | "USD" =>
+  locale === "en" ? "GBP" : locale === "us" ? "USD" : "EUR";
 
 export function money(amount: number, locale: Locale, currency: "GBP" | "EUR" | "USD" = currencyFor(locale)) {
   return new Intl.NumberFormat(intlTag[locale], {

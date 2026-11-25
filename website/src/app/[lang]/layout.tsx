@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import { site } from "@/lib/site";
-import { intlTag, locales } from "@/i18n/config";
+import { htmlLang, intlTag, locales } from "@/i18n/config";
 import { resolve, type LangParams } from "@/i18n/page";
 
 // Fonts are downloaded at build time and served from this site, so visitors'
@@ -44,11 +44,11 @@ export default async function RootLayout({ children, params }: { children: React
     vatID: site.vatNumber.replace(/\s/g, ""),
     address: { "@type": "PostalAddress", streetAddress: "Flat 1-4, 67 Wellesley Road", addressLocality: "Croydon", postalCode: "CR0 2AJ", addressCountry: "GB" },
     description: d.meta.siteDescription,
-    availableLanguage: ["en", "de", "fr", "es", "it"],
+    availableLanguage: ["en-GB", "en-US", "de", "fr", "es", "it"],
     areaServed: ["United Kingdom", "European Union", "United States"],
   };
   return (
-    <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>
+    <html lang={htmlLang[locale]} className={`${inter.variable} ${manrope.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a href="#main" className="skip">{d.nav.skip}</a>

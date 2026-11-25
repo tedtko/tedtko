@@ -2,13 +2,16 @@ import type { Dict } from "../types";
 import { currencyFor, money } from "../config";
 import { invoiceLimits, packages, setupFee, site as S } from "@/lib/site";
 
-const m = (n: number) => money(n, "en");
-const C = currencyFor("en");
-const P = Object.fromEntries(packages.map((p) => [p.id, p.price[C]])) as Record<string, number>;
 const mail = `[${S.supportEmail}](mailto:${S.supportEmail})`;
 const RT = "2 business days";
 
-const en: Dict = {
+/** English text, used by the UK site ("en", pounds) and the US site ("us", dollars). */
+export function buildEnglish(loc: "en" | "us"): Dict {
+const m = (n: number) => money(n, loc);
+const C = currencyFor(loc);
+const P = Object.fromEntries(packages.map((p) => [p.id, p.price[C]])) as Record<string, number>;
+
+return {
   meta: {
     siteTitle: "Remote Architectural CAD Drawings & Planning Packs",
     siteDescription:
@@ -497,7 +500,7 @@ const en: Dict = {
           ] },
         ] },
         { h: "5. Prices, VAT & currency", body: [
-          "On our English site prices are shown and charged in pounds sterling (GBP); on our German, French, Spanish and Italian sites they are shown and charged in euros (EUR). Each currency has its own fixed price list (we do not convert at live exchange rates), so the price you see is the price you pay. Prices exclude UK VAT at 20%, with the VAT-inclusive total also shown. Your card issuer may apply its own exchange rate or fees. For properties outside the UK, different VAT rules may apply; please contact us before ordering so we can confirm the correct VAT treatment.",
+          "On our UK English site prices are shown and charged in pounds sterling (GBP), and on our US site in US dollars (USD); on our German, French, Spanish and Italian sites they are shown and charged in euros (EUR). Each currency has its own fixed price list (we do not convert at live exchange rates), so the price you see is the price you pay. Prices exclude UK VAT at 20%, with the VAT-inclusive total also shown. Your card issuer may apply its own exchange rate or fees. For properties outside the UK, different VAT rules may apply; please contact us before ordering so we can confirm the correct VAT treatment.",
         ] },
         { h: "6. Governing law, courts & disputes", body: [
           "Our contracts are governed by the law of **England and Wales**. If you are a consumer, this does not deprive you of the protection of the mandatory provisions of the law of your country of residence, and you may be able to bring proceedings in the courts of your country.",
@@ -514,5 +517,7 @@ const en: Dict = {
   },
   samplesFigures: { fileName: "proposed-ground-floor.dwg" },
 };
+}
 
+const en = buildEnglish("en");
 export default en;

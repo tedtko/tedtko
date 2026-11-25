@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { localeNames, locales, lp, stripLocale, type Locale } from "@/i18n/config";
+import { htmlLang, localeNames, locales, lp, stripLocale, type Locale } from "@/i18n/config";
 
 // A plain <details> dropdown: works without JavaScript and is keyboard accessible.
 // Uses ordinary links so each language loads as its own page (correct <html lang>).
@@ -31,7 +31,7 @@ export default function LanguageSwitcher({ locale, label }: { locale: Locale; la
       <ul role="list">
         {locales.map((l) => (
           <li key={l}>
-            <a href={lp(l, rest)} hrefLang={l} lang={l} aria-current={l === locale ? "true" : undefined}>
+            <a href={lp(l, rest)} hrefLang={htmlLang[l]} lang={htmlLang[l]} aria-current={l === locale ? "true" : undefined}>
               <span className="code">{l.toUpperCase()}</span> {localeNames[l]}
             </a>
           </li>

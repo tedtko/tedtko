@@ -12,7 +12,8 @@ architectural CAD drawing studio. Built with Next.js and deployed on Vercel.
 Prices, package contents, FAQs and the legal pages' "last updated" date are in the same file.
 
 ## Languages
-English (default, no URL prefix), German `/de`, French `/fr`, Spanish `/es`, Italian `/it`.
+UK English (default, no URL prefix, prices in GBP), US English `/us` (USD, ACH at checkout),
+German `/de`, French `/fr`, Spanish `/es`, Italian `/it` (EUR).
 All wording, including legal pages, is in `src/i18n/dictionaries/<lang>.ts`. Company details and prices
 are shared in `src/lib/site.ts`. Each page sets `<html lang>` and hreflang alternates automatically.
 Never add the protected titles "architect" / "Architekt" / "architecte" / "arquitecto" / "architetto".

@@ -35,7 +35,7 @@ export async function POST(req: Request) {
   const origin = process.env.NEXT_PUBLIC_SITE_URL || new URL(req.url).origin;
   const success_url = `${origin}${lp(locale, "/payment/success")}?session_id={CHECKOUT_SESSION_ID}`;
   // Stripe Checkout supports all five site languages.
-  const stripeLocale = locale as Stripe.Checkout.SessionCreateParams.Locale;
+  const stripeLocale = (locale === "us" ? "en" : locale) as Stripe.Checkout.SessionCreateParams.Locale;
   let params: Stripe.Checkout.SessionCreateParams;
 
   if (body.type === "package") {
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
     // Optional: send customers to a hosted payment link (e.g. Dodo Payments or a
     // Stripe Payment Link) instead. Set PAYMENT_LINK_ESSENTIAL (pounds) and
     // PAYMENT_LINK_ESSENTIAL_EUR (euros), etc.
-    const link = process.env[`PAYMENT_LINK_${pkg.id.toUpperCase()}${currency === "EUR" ? "_EUR" : ""}`];
+    const link = process.env[`PAYMENT_LINK_${pkg.id.toUpperCase()}${currency === "GBP" ? "" : `_${currency}`}`];
     if (link) return NextResponse.json({ url: link });
 
     const name = pkg.id.charAt(0).toUpperCase() + pkg.id.slice(1);

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { site } from "@/lib/site";
-import { defaultLocale, intlTag, isLocale, locales, lp, type Locale } from "./config";
+import { defaultLocale, htmlLang, intlTag, isLocale, locales, lp, type Locale } from "./config";
 import { getDict } from "./get";
 
 export type LangParams = { params: Promise<{ lang: string }> };
@@ -18,7 +18,7 @@ const abs = (path: string) => new URL(path, site.url).toString();
 /** Page metadata with canonical URL and hreflang alternates for every language. */
 export function pageMeta(locale: Locale, path: string, title: string, description: string, noindex = false): Metadata {
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = abs(lp(l, path));
+  for (const l of locales) languages[htmlLang[l]] = abs(lp(l, path));
   languages["x-default"] = abs(lp(defaultLocale, path));
   return {
     title,

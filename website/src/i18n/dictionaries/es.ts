@@ -496,7 +496,7 @@ const es: Dict = {
           ] },
         ] },
         { h: "5. Precios, IVA y moneda", body: [
-          "En nuestros sitios en alemán, francés, español e italiano los precios se muestran y cobran en euros (EUR); en el sitio en inglés, en libras esterlinas (GBP). Cada moneda tiene su propia tarifa fija (no convertimos al tipo de cambio del día), por lo que el precio que ve es el que paga. Los precios no incluyen el 20 % de IVA británico; también se muestra el total con IVA. Su banco puede aplicar su propio tipo de cambio o comisiones. Para viviendas fuera del Reino Unido pueden aplicarse otras normas de IVA; contáctenos antes del pedido para confirmar el tratamiento correcto.",
+          "En nuestros sitios en alemán, francés, español e italiano los precios se muestran y cobran en euros (EUR); en el sitio en inglés del Reino Unido, en libras esterlinas (GBP), y en el sitio de EE. UU., en dólares estadounidenses (USD). Cada moneda tiene su propia tarifa fija (no convertimos al tipo de cambio del día), por lo que el precio que ve es el que paga. Los precios no incluyen el 20 % de IVA británico; también se muestra el total con IVA. Su banco puede aplicar su propio tipo de cambio o comisiones. Para viviendas fuera del Reino Unido pueden aplicarse otras normas de IVA; contáctenos antes del pedido para confirmar el tratamiento correcto.",
         ] },
         { h: "6. Ley aplicable, tribunales y resolución de disputas", body: [
           "Nuestros contratos se rigen por la ley de **Inglaterra y Gales**. Si es consumidor, ello no le priva de la protección de las disposiciones imperativas de la ley de su país de residencia, y podrá, en su caso, acudir a los tribunales de su país.",
