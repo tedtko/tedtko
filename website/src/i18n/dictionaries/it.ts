@@ -90,7 +90,7 @@ const it: Dict = {
     excludesNote: "Pagamento online sicuro. Non inclusi: calcoli strutturali, diritti e oneri amministrativi e qualsiasi lavoro edile in loco.",
     cancelled: "Il pagamento è stato annullato e non le è stato addebitato nulla.",
     paymentTitle: "Metodi di pagamento",
-    paymentText: "Paghi in sicurezza al checkout o tramite fattura. Sono accettate le principali carte di credito e di debito, i portafogli digitali come Apple Pay e Google Pay e altri metodi bancari o regionali, ove il nostro fornitore di pagamenti li supporti per il suo Paese e la sua valuta. Le opzioni disponibili sono indicate al checkout. Preferisce pagare con bonifico su fattura? [Ci contatti](/contact).",
+    paymentText: "Paghi in sicurezza al checkout o tramite fattura. Sono accettate le principali carte di credito e di debito, i portafogli digitali come Apple Pay e Google Pay e altri metodi bancari o regionali, ove il nostro fornitore di pagamenti li supporti per il suo Paese e la sua valuta. Le opzioni disponibili sono indicate al checkout. Preferisce pagare con bonifico su fattura? [Ci contatti](/contact). I clienti negli USA possono pagare le fatture in dollari statunitensi (USD) dalla pagina [Paga fattura](/pay), anche tramite pagamento bancario statunitense (ACH) ove disponibile.",
   },
   order: {
     groupLabel: "Confermi l'ordine",
@@ -183,9 +183,14 @@ const it: Dict = {
     metaTitle: "Paga una fattura",
     metaDescription: `Paghi online in sicurezza la sua fattura ${S.tradingName}.`,
     eyebrow: "Clienti", title: "Paga una fattura",
-    lead: "Inserisca il numero di fattura e l'importo totale dovuto (IVA inclusa) riportati in fattura, poi paghi in sicurezza sulla pagina del nostro fornitore di pagamenti.",
+    lead: "Inserisca il numero di fattura e l'importo totale dovuto (IVA inclusa) riportati in fattura, poi paghi in sicurezza sulla pagina del nostro fornitore di pagamenti. Può pagare in sterline (GBP), euro (EUR) o dollari statunitensi (USD).",
     questions: `Domande su una fattura? Scriva a ${mail}`,
     cancelled: "Pagamento annullato. Non le è stato addebitato nulla.",
+    achTitle: "Paga con bonifico bancario USA (ACH)",
+    achIntro: "I clienti negli USA possono pagare anche in dollari con bonifico ACH o wire da un conto bancario statunitense:",
+    achNote: "Indichi il numero di fattura come causale. I bonifici negli USA arrivano di norma entro 1–3 giorni lavorativi.",
+    achRefValue: "Il suo numero di fattura",
+    achLabels: { accountName: "Intestatario del conto", bankName: "Banca", routing: "Routing number (ACH)", account: "Numero di conto", accountType: "Tipo di conto", bankAddress: "Indirizzo della banca", reference: "Causale" },
   },
   forms: {
     name: "Nome e cognome", email: "E-mail", phone: "Telefono", optional: "(facoltativo)",
@@ -217,7 +222,7 @@ const it: Dict = {
   success: {
     metaTitle: "Ordine ricevuto", eyebrowPaid: "Pagamento riuscito", eyebrowThanks: "Grazie",
     title: "Grazie per l'ordine", paid: "Abbiamo ricevuto il suo pagamento di {amount}.",
-    processing: "Il pagamento è in elaborazione.", receipt: "Una ricevuta è stata inviata a {email}.",
+    processing: "Il pagamento è in elaborazione. I pagamenti bancari (come SEPA o ACH) vengono di solito accreditati in pochi giorni lavorativi; le invieremo un'e-mail appena il suo sarà ricevuto.", receipt: "Una ricevuta è stata inviata a {email}.",
     ref: "Il suo riferimento ordine: {ref}",
     next: "**Passo successivo:** carichi misure, schizzi e foto così possiamo iniziare a disegnare.",
     upload: "Carica misure e foto",

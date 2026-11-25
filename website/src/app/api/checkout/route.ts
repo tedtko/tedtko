@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
-import { VAT_RATE, invoiceLimits, packages, site, type Currency } from "@/lib/site";
+import { VAT_RATE, invoiceCurrencies, invoiceLimits, packages, site, type Currency, type InvoiceCurrency } from "@/lib/site";
 import { currencyFor, defaultLocale, isLocale, lp, type Locale } from "@/i18n/config";
 
 export const runtime = "nodejs";
@@ -91,7 +91,8 @@ export async function POST(req: Request) {
     const reference = clean(body.reference, 40);
     const name = clean(body.name, 80);
     const email = clean(body.email, 120);
-    const currency: Currency = String(body.currency).toUpperCase() === "EUR" ? "EUR" : String(body.currency).toUpperCase() === "GBP" ? "GBP" : currencyFor(locale);
+    const requested = String(body.currency || "").toUpperCase() as InvoiceCurrency;
+    const currency: InvoiceCurrency = invoiceCurrencies.includes(requested) ? requested : currencyFor(locale);
     if (!Number.isFinite(amount) || amount < invoiceLimits.min || amount > invoiceLimits.max) return fail("invalid_amount");
     if (!reference || !name || !/^\S+@\S+\.\S+$/.test(email)) return fail("missing_fields");
     params = {

@@ -46,7 +46,7 @@ export function t(str: string, vars: Record<string, string | number> = {}) {
 /** English site uses pounds; the European language sites use euros. */
 export const currencyFor = (locale: Locale): "GBP" | "EUR" => (locale === "en" ? "GBP" : "EUR");
 
-export function money(amount: number, locale: Locale, currency: "GBP" | "EUR" = currencyFor(locale)) {
+export function money(amount: number, locale: Locale, currency: "GBP" | "EUR" | "USD" = currencyFor(locale)) {
   return new Intl.NumberFormat(intlTag[locale], {
     style: "currency",
     currency,

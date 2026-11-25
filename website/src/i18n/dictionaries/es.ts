@@ -90,7 +90,7 @@ const es: Dict = {
     excludesNote: "Pago online seguro. No incluye cálculos estructurales, tasas administrativas ni ninguna obra física.",
     cancelled: "Su pago se ha cancelado y no se le ha cobrado nada.",
     paymentTitle: "Formas de pago",
-    paymentText: "Pague de forma segura en el checkout o mediante factura. Se aceptan las principales tarjetas de crédito y débito, monederos digitales como Apple Pay y Google Pay, y otros métodos bancarios o regionales cuando nuestro proveedor de pagos los admite para su país y moneda. Las opciones disponibles se muestran en el checkout. ¿Prefiere pagar por transferencia contra factura? [Contáctenos](/contact).",
+    paymentText: "Pague de forma segura en el checkout o mediante factura. Se aceptan las principales tarjetas de crédito y débito, monederos digitales como Apple Pay y Google Pay, y otros métodos bancarios o regionales cuando nuestro proveedor de pagos los admite para su país y moneda. Las opciones disponibles se muestran en el checkout. ¿Prefiere pagar por transferencia contra factura? [Contáctenos](/contact). Los clientes de EE. UU. pueden pagar sus facturas en dólares estadounidenses (USD) en nuestra página [Pagar factura](/pay), también mediante pago bancario estadounidense (ACH) cuando esté disponible.",
   },
   order: {
     groupLabel: "Confirme su pedido",
@@ -183,9 +183,14 @@ const es: Dict = {
     metaTitle: "Pagar una factura",
     metaDescription: `Pague su factura de ${S.tradingName} online de forma segura.`,
     eyebrow: "Clientes", title: "Pagar una factura",
-    lead: "Introduzca el número de factura y el importe total (IVA incluido) que figuran en su factura y pague de forma segura en la página de nuestro proveedor de pagos.",
+    lead: "Introduzca el número de factura y el importe total (IVA incluido) que figuran en su factura y pague de forma segura en la página de nuestro proveedor de pagos. Puede pagar en libras (GBP), euros (EUR) o dólares estadounidenses (USD).",
     questions: `¿Dudas sobre una factura? Escriba a ${mail}`,
     cancelled: "Pago cancelado. No se le ha cobrado nada.",
+    achTitle: "Pagar por transferencia bancaria en EE. UU. (ACH)",
+    achIntro: "Los clientes de EE. UU. también pueden pagar en dólares mediante transferencia ACH o wire desde una cuenta bancaria estadounidense:",
+    achNote: "Indique su número de factura como referencia del pago. Las transferencias en EE. UU. suelen llegar en 1–3 días hábiles.",
+    achRefValue: "Su número de factura",
+    achLabels: { accountName: "Titular de la cuenta", bankName: "Banco", routing: "Número de ruta (ACH)", account: "Número de cuenta", accountType: "Tipo de cuenta", bankAddress: "Dirección del banco", reference: "Referencia del pago" },
   },
   forms: {
     name: "Nombre completo", email: "Correo electrónico", phone: "Teléfono", optional: "(opcional)",
@@ -217,7 +222,7 @@ const es: Dict = {
   success: {
     metaTitle: "Pedido recibido", eyebrowPaid: "Pago realizado", eyebrowThanks: "Gracias",
     title: "Gracias por su pedido", paid: "Hemos recibido su pago de {amount}.",
-    processing: "Su pago se está procesando.", receipt: "Se ha enviado un recibo a {email}.",
+    processing: "Su pago se está procesando. Los pagos bancarios (como SEPA o ACH) suelen tardar unos días hábiles en hacerse efectivos; le avisaremos por correo cuando se haya recibido el suyo.", receipt: "Se ha enviado un recibo a {email}.",
     ref: "Su referencia de pedido: {ref}",
     next: "**Siguiente paso:** suba sus medidas, bocetos y fotos para que podamos empezar a dibujar.",
     upload: "Subir medidas y fotos",

@@ -47,6 +47,7 @@ export default function InvoiceForm({ locale, f, errors }: { locale: Locale; f: 
           <select id="inv-currency" name="currency" defaultValue={currencyFor(locale)}>
             <option value="EUR">€ EUR</option>
             <option value="GBP">£ GBP</option>
+            <option value="USD">$ USD</option>
           </select>
         </div>
         <div className="field">

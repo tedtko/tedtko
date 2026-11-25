@@ -90,7 +90,7 @@ const de: Dict = {
     excludesNote: "Sicherer Online-Checkout. Nicht enthalten: Statikberechnungen, Gebühren von Behörden sowie jegliche Bauleistungen vor Ort.",
     cancelled: "Ihre Zahlung wurde abgebrochen. Es wurde nichts abgebucht.",
     paymentTitle: "Zahlungsmöglichkeiten",
-    paymentText: "Sie zahlen sicher im Checkout oder per Rechnung. Möglich sind gängige Kredit- und Debitkarten, digitale Wallets wie Apple Pay und Google Pay sowie weitere Bank- oder regionale Zahlungsarten, sofern unser Zahlungsanbieter sie für Ihr Land und Ihre Währung unterstützt. Die verfügbaren Optionen werden im Checkout angezeigt. Sie möchten lieber per Überweisung auf Rechnung zahlen? [Kontaktieren Sie uns](/contact).",
+    paymentText: "Sie zahlen sicher im Checkout oder per Rechnung. Möglich sind gängige Kredit- und Debitkarten, digitale Wallets wie Apple Pay und Google Pay sowie weitere Bank- oder regionale Zahlungsarten, sofern unser Zahlungsanbieter sie für Ihr Land und Ihre Währung unterstützt. Die verfügbaren Optionen werden im Checkout angezeigt. Sie möchten lieber per Überweisung auf Rechnung zahlen? [Kontaktieren Sie uns](/contact). Kunden in den USA können Rechnungen auf unserer Seite [Rechnung bezahlen](/pay) in US-Dollar (USD) begleichen, wo verfügbar auch per US-Banküberweisung (ACH).",
   },
   order: {
     groupLabel: "Bestellung bestätigen",
@@ -183,9 +183,14 @@ const de: Dict = {
     metaTitle: "Rechnung bezahlen",
     metaDescription: `Bezahlen Sie Ihre Rechnung von ${S.tradingName} sicher online.`,
     eyebrow: "Für Bestandskunden", title: "Rechnung bezahlen",
-    lead: "Geben Sie die Rechnungsnummer und den Gesamtbetrag (inkl. MwSt.) laut Rechnung ein und zahlen Sie sicher auf der Checkout-Seite unseres Zahlungsanbieters.",
+    lead: "Geben Sie die Rechnungsnummer und den Gesamtbetrag (inkl. MwSt.) laut Rechnung ein und zahlen Sie sicher auf der Checkout-Seite unseres Zahlungsanbieters. Sie können in Pfund (GBP), Euro (EUR) oder US-Dollar (USD) zahlen.",
     questions: `Fragen zu einer Rechnung? E-Mail an ${mail}`,
     cancelled: "Zahlung abgebrochen. Es wurde nichts abgebucht.",
+    achTitle: "Zahlung per US-Banküberweisung (ACH)",
+    achIntro: "Kunden in den USA können auch in US-Dollar per ACH- oder Wire-Überweisung von einem US-Bankkonto zahlen:",
+    achNote: "Bitte geben Sie Ihre Rechnungsnummer als Verwendungszweck an. US-Überweisungen gehen in der Regel innerhalb von 1–3 Werktagen ein.",
+    achRefValue: "Ihre Rechnungsnummer",
+    achLabels: { accountName: "Kontoinhaber", bankName: "Bank", routing: "Routing-Nummer (ACH)", account: "Kontonummer", accountType: "Kontoart", bankAddress: "Anschrift der Bank", reference: "Verwendungszweck" },
   },
   forms: {
     name: "Vollständiger Name", email: "E-Mail", phone: "Telefon", optional: "(optional)",
@@ -217,7 +222,7 @@ const de: Dict = {
   success: {
     metaTitle: "Bestellung eingegangen", eyebrowPaid: "Zahlung erfolgreich", eyebrowThanks: "Vielen Dank",
     title: "Vielen Dank für Ihre Bestellung", paid: "Wir haben Ihre Zahlung über {amount} erhalten.",
-    processing: "Ihre Zahlung wird bearbeitet.", receipt: "Eine Quittung wurde an {email} gesendet.",
+    processing: "Ihre Zahlung wird bearbeitet. Bankzahlungen (z. B. SEPA oder ACH) werden in der Regel innerhalb einiger Werktage gutgeschrieben; wir benachrichtigen Sie per E-Mail, sobald Ihre Zahlung eingegangen ist.", receipt: "Eine Quittung wurde an {email} gesendet.",
     ref: "Ihre Bestellnummer: {ref}",
     next: "**Nächster Schritt:** Laden Sie Ihre Maße, Skizzen und Fotos hoch, damit wir mit dem Zeichnen beginnen können.",
     upload: "Maße & Fotos hochladen",

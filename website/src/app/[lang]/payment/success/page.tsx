@@ -23,7 +23,8 @@ export default async function SuccessPage({ params, searchParams }: LangParams &
     try {
       const s = await getStripe().checkout.sessions.retrieve(session_id);
       paid = s.payment_status === "paid";
-      amount = money((s.amount_total || 0) / 100, locale, s.currency?.toUpperCase() === "EUR" ? "EUR" : "GBP");
+      const cur = (s.currency || "gbp").toUpperCase();
+      amount = money((s.amount_total || 0) / 100, locale, cur === "EUR" || cur === "USD" ? cur : "GBP");
       email = s.customer_details?.email || "";
       isPackage = s.metadata?.kind === "package";
       ref = s.id.slice(-10).toUpperCase();

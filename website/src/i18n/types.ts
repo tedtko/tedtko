@@ -57,7 +57,11 @@ export type Dict = {
     emailNote: string; phoneNote: string; whatsapp: string; whatsappNote: string; already: string; formTitle: string; waText: string;
   };
   intake: { metaTitle: string; metaDescription: string; eyebrow: string; title: string; lead: string; trouble: string };
-  pay: { metaTitle: string; metaDescription: string; eyebrow: string; title: string; lead: string; questions: string; cancelled: string };
+  pay: {
+    metaTitle: string; metaDescription: string; eyebrow: string; title: string; lead: string; questions: string; cancelled: string;
+    achTitle: string; achIntro: string; achNote: string; achRefValue: string;
+    achLabels: { accountName: string; bankName: string; routing: string; account: string; accountType: string; bankAddress: string; reference: string };
+  };
   forms: {
     name: string; email: string; phone: string; optional: string; orderRef: string; orderRefHint: string;
     interested: string; notSure: string; packSuffix: string; yourPack: string; select: string; address: string;

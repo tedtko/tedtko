@@ -30,6 +30,11 @@ export const VAT_RATE = 0.2;
 export const incVat = (net: number) => Math.round(net * (1 + VAT_RATE) * 100) / 100;
 
 export type Currency = "GBP" | "EUR";
+// Currencies accepted on the Pay Invoice page. USD lets US clients pay in dollars;
+// US bank payments (ACH) appear at Stripe checkout only if enabled and available
+// for your Stripe account.
+export type InvoiceCurrency = Currency | "USD";
+export const invoiceCurrencies: InvoiceCurrency[] = ["GBP", "EUR", "USD"];
 export type PackageId = "essential" | "standard" | "premium";
 
 // The English site charges in pounds; the German, French, Spanish and Italian
@@ -50,5 +55,17 @@ export const setupFee: Record<Currency, number> = { GBP: 500, EUR: 580 };
 
 // Limits for the "Pay an invoice" page (total due including VAT, either currency).
 export const invoiceLimits = { min: 1, max: 25000 };
+
+// Optional: US bank account details for ACH / wire transfers (for example from a
+// Wise Business or similar USD account). When accountNumber is filled in, a
+// "Pay by US bank transfer (ACH)" box appears on the Pay Invoice page.
+export const usBankTransfer = {
+  accountName: "", // e.g. "Fair Trade 23 Limited"
+  bankName: "", // e.g. "Community Federal Savings Bank"
+  routingNumber: "", // ACH routing number (9 digits)
+  accountNumber: "",
+  accountType: "", // e.g. "Checking"
+  bankAddress: "",
+};
 
 export const LAST_UPDATED = "2026-11-19"; // shown (localised) on the legal pages

@@ -90,7 +90,7 @@ const fr: Dict = {
     excludesNote: "Paiement en ligne sécurisé. Non inclus : calculs de structure, taxes ou frais administratifs et tout travail de construction sur place.",
     cancelled: "Votre paiement a été annulé et vous n'avez pas été débité.",
     paymentTitle: "Moyens de paiement",
-    paymentText: "Payez en toute sécurité lors du paiement en ligne ou sur facture. Sont acceptés les principales cartes de crédit et de débit, les portefeuilles numériques comme Apple Pay et Google Pay, ainsi que d'autres moyens bancaires ou régionaux lorsque notre prestataire de paiement les prend en charge pour votre pays et votre devise. Les options disponibles s'affichent lors du paiement. Vous préférez un virement sur facture ? [Contactez-nous](/contact).",
+    paymentText: "Payez en toute sécurité lors du paiement en ligne ou sur facture. Sont acceptés les principales cartes de crédit et de débit, les portefeuilles numériques comme Apple Pay et Google Pay, ainsi que d'autres moyens bancaires ou régionaux lorsque notre prestataire de paiement les prend en charge pour votre pays et votre devise. Les options disponibles s'affichent lors du paiement. Vous préférez un virement sur facture ? [Contactez-nous](/contact). Les clients aux États-Unis peuvent régler leurs factures en dollars américains (USD) sur notre page [Payer une facture](/pay), y compris par paiement bancaire américain (ACH) lorsqu'il est disponible.",
   },
   order: {
     groupLabel: "Confirmer votre commande",
@@ -183,9 +183,14 @@ const fr: Dict = {
     metaTitle: "Payer une facture",
     metaDescription: `Réglez votre facture ${S.tradingName} en ligne en toute sécurité.`,
     eyebrow: "Clients existants", title: "Payer une facture",
-    lead: "Saisissez le numéro de facture et le montant total dû (TTC) indiqués sur votre facture, puis payez en toute sécurité sur la page de notre prestataire de paiement.",
+    lead: "Saisissez le numéro de facture et le montant total dû (TTC) indiqués sur votre facture, puis payez en toute sécurité sur la page de notre prestataire de paiement. Vous pouvez payer en livres (GBP), en euros (EUR) ou en dollars américains (USD).",
     questions: `Une question sur une facture ? Écrivez à ${mail}`,
     cancelled: "Paiement annulé. Vous n'avez pas été débité.",
+    achTitle: "Payer par virement bancaire américain (ACH)",
+    achIntro: "Les clients aux États-Unis peuvent également payer en dollars par virement ACH ou wire depuis un compte bancaire américain :",
+    achNote: "Indiquez votre numéro de facture comme référence de paiement. Les virements américains arrivent généralement sous 1 à 3 jours ouvrés.",
+    achRefValue: "Votre numéro de facture",
+    achLabels: { accountName: "Titulaire du compte", bankName: "Banque", routing: "Numéro de routage (ACH)", account: "Numéro de compte", accountType: "Type de compte", bankAddress: "Adresse de la banque", reference: "Référence du paiement" },
   },
   forms: {
     name: "Nom complet", email: "E-mail", phone: "Téléphone", optional: "(facultatif)",
@@ -217,7 +222,7 @@ const fr: Dict = {
   success: {
     metaTitle: "Commande reçue", eyebrowPaid: "Paiement réussi", eyebrowThanks: "Merci",
     title: "Merci pour votre commande", paid: "Nous avons bien reçu votre paiement de {amount}.",
-    processing: "Votre paiement est en cours de traitement.", receipt: "Un reçu a été envoyé à {email}.",
+    processing: "Votre paiement est en cours de traitement. Les paiements bancaires (comme SEPA ou ACH) sont généralement crédités en quelques jours ouvrés ; nous vous enverrons un e-mail dès réception du vôtre.", receipt: "Un reçu a été envoyé à {email}.",
     ref: "Votre référence de commande : {ref}",
     next: "**Étape suivante :** envoyez vos mesures, croquis et photos pour que nous puissions commencer à dessiner.",
     upload: "Envoyer mes mesures & photos",

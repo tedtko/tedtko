@@ -90,7 +90,7 @@ const en: Dict = {
     excludesNote: "Secure online checkout. Excludes structural engineering calculations, council or authority fees and any physical building work.",
     cancelled: "Your payment was cancelled and you have not been charged.",
     paymentTitle: "Payment options",
-    paymentText: "Pay securely at checkout or by invoice. Options include major credit and debit cards, digital wallets such as Apple Pay and Google Pay, and other bank or regional payment methods where our payment provider supports them for your country and currency. Available options are shown at checkout. Prefer to pay by bank transfer against an invoice? [Contact us](/contact).",
+    paymentText: "Pay securely at checkout or by invoice. Options include major credit and debit cards, digital wallets such as Apple Pay and Google Pay, and other bank or regional payment methods where our payment provider supports them for your country and currency. Available options are shown at checkout. Prefer to pay by bank transfer against an invoice? [Contact us](/contact). US clients can pay invoices in US dollars (USD) on our [Pay Invoice](/pay) page, including by US bank payment (ACH) where available.",
   },
   order: {
     groupLabel: "Confirm your order",
@@ -183,9 +183,14 @@ const en: Dict = {
     metaTitle: "Pay an Invoice",
     metaDescription: `Pay your ${S.tradingName} invoice securely online.`,
     eyebrow: "Existing clients", title: "Pay an invoice",
-    lead: "Enter the invoice number and the total due (inc. VAT) shown on your invoice, then pay securely on our payment provider's checkout page.",
+    lead: "Enter the invoice number and the total due (inc. VAT) shown on your invoice, then pay securely on our payment provider's checkout page. You can pay in pounds (GBP), euros (EUR) or US dollars (USD).",
     questions: `Questions about an invoice? Email ${mail}`,
     cancelled: "Payment cancelled. You have not been charged.",
+    achTitle: "Pay by US bank transfer (ACH)",
+    achIntro: "US clients can also pay in US dollars by ACH or wire transfer from a US bank account:",
+    achNote: "Please use your invoice number as the payment reference. US bank transfers usually arrive within 1–3 business days.",
+    achRefValue: "Your invoice number",
+    achLabels: { accountName: "Account name", bankName: "Bank", routing: "Routing number (ACH)", account: "Account number", accountType: "Account type", bankAddress: "Bank address", reference: "Payment reference" },
   },
   forms: {
     name: "Full name", email: "Email", phone: "Phone", optional: "(optional)",
@@ -217,7 +222,7 @@ const en: Dict = {
   success: {
     metaTitle: "Order received", eyebrowPaid: "Payment successful", eyebrowThanks: "Thank you",
     title: "Thank you for your order", paid: "We've received your payment of {amount}.",
-    processing: "Your payment is being processed.", receipt: "A receipt has been sent to {email}.",
+    processing: "Your payment is being processed. Bank payments (such as ACH or SEPA) usually take a few business days to clear, and we'll email you once yours has.", receipt: "A receipt has been sent to {email}.",
     ref: "Your order reference: {ref}",
     next: "**Next step:** upload your measurements, sketches and photos so we can begin drafting.",
     upload: "Upload measurements & photos",
