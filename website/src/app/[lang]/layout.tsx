@@ -45,6 +45,7 @@ export default async function RootLayout({ children, params }: { children: React
     address: { "@type": "PostalAddress", streetAddress: "Flat 1-4, 67 Wellesley Road", addressLocality: "Croydon", postalCode: "CR0 2AJ", addressCountry: "GB" },
     description: d.meta.siteDescription,
     availableLanguage: ["en", "de", "fr", "es", "it"],
+    areaServed: ["United Kingdom", "European Union", "United States"],
   };
   return (
     <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>

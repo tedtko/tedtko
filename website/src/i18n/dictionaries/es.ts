@@ -23,9 +23,9 @@ const es: Dict = {
     eyebrow: "Estudio de diseño arquitectónico CAD",
     titleA: "Planos CAD arquitectónicos y paquetes de planificación a distancia.",
     titleB: "100 % online.",
-    lead: "Paquetes de diseño 2D y 3D a precio fijo, plantas y planos conforme a la normativa británica de edificación, elaborados a distancia a partir de sus medidas, bocetos y fotos. Entrega digital en formatos PDF y DWG.",
+    lead: "Paquetes de diseño 2D y 3D a precio fijo, plantas y planos conforme a la normativa de edificación de su país, elaborados a distancia a partir de sus medidas, bocetos y fotos. Entrega digital en formatos PDF y DWG.",
     badgesLabel: "Por qué elegirnos",
-    badges: ["Entrega 100 % digital", "Precios fijos y transparentes", "Planos conforme a la normativa británica", "Plazos digitales rápidos"],
+    badges: ["Entrega 100 % digital", "Precios fijos y transparentes", "Conforme a la normativa de su país", "Plazos digitales rápidos"],
     ctaPrimary: "Ver paquetes de planos",
     ctaSecondary: "Cómo funciona",
   },
@@ -86,7 +86,7 @@ const es: Dict = {
       },
     },
     vatNote: "Todos los precios excluyen el 20 % de IVA británico cuando corresponda. Bajo petición, ofrecemos pago fraccionado (50 % de reserva / 50 % antes de entregar los archivos CAD/DWG finales). [Contáctenos](/contact) antes de hacer el pedido.",
-    outsideUkNote: "¿Su proyecto está fuera del Reino Unido? [Contáctenos](/contact) antes de hacer el pedido para confirmar el tratamiento de IVA aplicable en su país.",
+    outsideUkNote: "Clientes de todo el mundo, incluidos Reino Unido, Europa y EE. UU.: sus planos se elaboran conforme a la normativa de edificación y los estándares de dibujo de **su** país, no a los británicos. ¿Su proyecto está fuera del Reino Unido? [Contáctenos](/contact) antes de hacer el pedido para confirmar sus requisitos locales y el tratamiento de IVA aplicable.",
     excludesNote: "Pago online seguro. No incluye cálculos estructurales, tasas administrativas ni ninguna obra física.",
     cancelled: "Su pago se ha cancelado y no se le ha cobrado nada.",
     paymentTitle: "Formas de pago",
@@ -103,7 +103,7 @@ const es: Dict = {
   steps: [
     { title: "Elija su paquete de alcance fijo", text: "Seleccione Essential, Standard o Premium y complete su pedido online." },
     { title: "Suba sus medidas y fotos", text: "Envíe sus medidas dibujadas a mano, fotos de la vivienda, planos de la inmobiliaria y la descripción del proyecto mediante nuestro formulario seguro." },
-    { title: "Dibujo CAD y modelado 3D a distancia", text: "Nuestro equipo de diseño CAD en el Reino Unido elabora a distancia sus planos arquitectónicos a escala y la documentación técnica." },
+    { title: "Dibujo CAD y modelado 3D a distancia", text: "Nuestro equipo de diseño CAD en el Reino Unido elabora a distancia sus planos arquitectónicos a escala y la documentación técnica, conforme a la normativa del país donde está su vivienda." },
     { title: "Entrega digital y revisiones", text: "Reciba por correo PDF de revisión con marca de agua, solicite sus rondas de revisión incluidas y descargue después sus archivos finales PDF y DWG sin marca de agua." },
   ],
   howPage: {
@@ -150,6 +150,8 @@ const es: Dict = {
     eyebrow: "Preguntas frecuentes", title: "Preguntas frecuentes",
     items: [
       ["¿Visitan mi vivienda?", "No. Somos un estudio de diseño 100 % a distancia. Cada plano se elabora con las medidas, bocetos y fotos que nos envía, así que nunca visitamos su vivienda."],
+      ["¿Qué normativa seguirán mis planos?", "La del país (y municipio) donde está su vivienda, no la británica. Los proyectos en el Reino Unido siguen las UK Building Regulations; los de Europa, la normativa nacional y local correspondiente (en España, por ejemplo, el CTE y las ordenanzas municipales); los de EE. UU., los códigos adoptados por su estado y jurisdicción local (normalmente basados en el IRC/IBC). Usamos las unidades y formatos habituales en su país (métricos o imperiales). Indíquenos en su descripción la autoridad competente y cualquier requisito específico."],
+      ["¿Trabajan con clientes en EE. UU. y otros países?", "Sí. Trabajamos totalmente a distancia para clientes del Reino Unido, Europa, EE. UU. y todo el mundo. Contáctenos antes de hacer el pedido para confirmar sus requisitos locales y el tratamiento de IVA aplicable. No proporcionamos sellos ni visados profesionales: si su jurisdicción exige planos sellados o visados, un profesional habilitado localmente debe revisarlos y sellarlos."],
       ["¿Qué tengo que enviarles?", "Medidas aproximadas de cada estancia y del exterior (basta un boceto a mano), fotos de cada fachada y de las estancias afectadas, planos existentes (p. ej. de un anuncio inmobiliario) y una breve descripción de lo que quiere construir."],
       ["¿Qué precisión deben tener mis medidas?", "La mayor posible. Dibujamos con las cotas que nos da, por lo que los errores pasan a los planos. Señalaremos lo que parezca incoherente, pero la exactitud de la información es responsabilidad suya (ver nuestros Términos)."],
       ["¿Qué formatos de archivo recibiré?", "Planos en PDF listos para imprimir o presentar, además de archivos CAD DWG editables. Los paquetes Standard y Premium incluyen también renders 3D en alta resolución, y Premium una especificación en PDF/DOCX."],
@@ -157,7 +159,6 @@ const es: Dict = {
       ["¿Presentan ustedes la solicitud de licencia?", "Le entregamos un juego de planos listo para presentar. La presentación y las tasas corren por su cuenta. Con gusto le explicamos qué documento va en cada sitio."],
       ["¿Se incluyen cálculos estructurales o tasas?", "No. No se incluyen cálculos estructurales, tasas de licencia o control ni ninguna obra física."],
       ["¿Puedo pagar a plazos?", "Sí. Bajo petición podemos dividir el importe en un 50 % de reserva y un 50 % antes de entregar los archivos CAD/DWG finales. Contáctenos antes de hacer el pedido."],
-      ["Mi vivienda está fuera del Reino Unido. ¿Pueden ayudarme?", "Sí, trabajamos totalmente a distancia. Contáctenos antes de hacer el pedido para confirmar los estándares de dibujo necesarios y el tratamiento de IVA aplicable en su país."],
       ["¿Puedo cancelar?", "Sí. Los consumidores tienen un derecho de desistimiento de 14 días. Si nos pide empezar dentro de ese plazo, podremos cobrar el trabajo ya realizado. Todos los detalles están en nuestra Política de reembolso y cancelación."],
     ],
   },
@@ -302,7 +303,7 @@ const es: Dict = {
           "Los plazos de entrega se expresan en días hábiles y empiezan cuando recibimos medidas e información completas. Son estimaciones de buena fe. Si necesitamos más información, el plazo se suspende hasta recibirla. Si no pidió un inicio anticipado, el plazo comienza al terminar el periodo de desistimiento de 14 días.",
         ] },
         { h: "8. Autorizaciones", body: [
-          "Nuestros planos se elaboran con el objetivo de cumplir los requisitos urbanísticos aplicables y las Building Regulations británicas. Las decisiones sobre licencias corresponden a la autoridad competente y **no podemos garantizar que ninguna solicitud sea aprobada**. Para viviendas fuera del Reino Unido, usted es responsable de confirmar los requisitos locales; dibujaremos según las normas que nos indique. Los cambios solicitados por una autoridad dentro del alcance de su paquete se descuentan de sus rondas de revisión.",
+          "Elaboramos sus planos conforme a la **normativa de edificación, las normas urbanísticas y los estándares de dibujo del país y la localidad donde se encuentra su vivienda**; conforme a la normativa británica solo si la vivienda está en el Reino Unido. Por ejemplo: UK Building Regulations en el Reino Unido; normativa nacional y local en los países de la UE; y los códigos adoptados por el estado y la jurisdicción local en EE. UU. (normalmente basados en el IRC/IBC), en unidades métricas o imperiales según corresponda. Indíquenos su autoridad competente y cualquier requisito local específico; varían de un lugar a otro y usted sigue siendo responsable de confirmarlos con su autoridad. Las decisiones sobre licencias corresponden a la autoridad competente y **no podemos garantizar que ninguna solicitud sea aprobada**. No proporcionamos sellos ni visados profesionales; cuando la ley local exija planos sellados o visados, un profesional habilitado localmente deberá revisarlos y sellarlos. Los cambios solicitados por una autoridad dentro del alcance de su paquete se descuentan de sus rondas de revisión.",
         ] },
         { h: "9. Propiedad intelectual", body: [
           "Los derechos de autor (o, en su defecto, todos los derechos de explotación transmisibles) sobre los planos CAD/PDF finales **se le transmiten al recibir el pago completo**, en la medida permitida por la ley. Hasta entonces, los planos siguen siendo de nuestra propiedad y no deben usarse ni presentarse. Nuestras plantillas, cajetines y detalles genéricos siguen siendo nuestros, pero usted dispone de una licencia permanente para usarlos en sus planos. Solo mostraremos su proyecto en nuestro portfolio con su permiso.",
@@ -475,7 +476,7 @@ const es: Dict = {
           "Actividad: delineación CAD arquitectónica a distancia y elaboración de planos digitales. No estamos inscritos en el ARB (Reino Unido) ni en ningún organismo profesional equivalente de otro país, y no utilizamos ningún título profesional protegido en ningún país.",
         ] },
         { h: "2. A quién se dirigen nuestros servicios", body: [
-          "Vendemos online paquetes de planos digitales a medida a clientes del Reino Unido y de otros países, como Alemania, Francia, España e Italia. Todo el trabajo se realiza a distancia; no hacemos visitas ni obras en ningún país.",
+          "Vendemos online paquetes de planos digitales a medida a clientes del Reino Unido y de otros países, como Alemania, Francia, España, Italia y Estados Unidos. Cada cliente recibe planos conforme a la normativa de edificación de su propio país, no a la británica. Todo el trabajo se realiza a distancia; no hacemos visitas ni obras en ningún país.",
         ] },
         { h: "3. Cancelación: consumidores del Reino Unido", body: [
           "Los consumidores del Reino Unido tienen un derecho de cancelación de 14 días conforme a las Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013. Si solicita expresamente que empecemos dentro de ese plazo, deberá pagar el trabajo realizado si cancela, y el derecho se extingue una vez prestado el servicio por completo. Detalles: [Política de reembolso y cancelación](/refund-policy).",

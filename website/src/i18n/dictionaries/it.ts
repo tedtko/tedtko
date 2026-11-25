@@ -23,9 +23,9 @@ const it: Dict = {
     eyebrow: "Studio di progettazione architettonica CAD",
     titleA: "Disegni CAD architettonici e pacchetti progettuali a distanza.",
     titleB: "100% online.",
-    lead: "Pacchetti di progettazione 2D e 3D a prezzo fisso, piante ed elaborati conformi ai regolamenti edilizi britannici, realizzati a distanza dalle sue misure, schizzi e foto. Consegna digitale nei formati PDF e DWG.",
+    lead: "Pacchetti di progettazione 2D e 3D a prezzo fisso, piante ed elaborati conformi alle norme edilizie del suo Paese, realizzati a distanza dalle sue misure, schizzi e foto. Consegna digitale nei formati PDF e DWG.",
     badgesLabel: "Perché sceglierci",
-    badges: ["Consegna 100% digitale", "Prezzi fissi e trasparenti", "Disegni conformi ai regolamenti edilizi britannici", "Tempi digitali rapidi"],
+    badges: ["Consegna 100% digitale", "Prezzi fissi e trasparenti", "Conformi alle norme del suo Paese", "Tempi digitali rapidi"],
     ctaPrimary: "Vedi i pacchetti",
     ctaSecondary: "Come funziona",
   },
@@ -86,7 +86,7 @@ const it: Dict = {
       },
     },
     vatNote: "Tutti i prezzi si intendono IVA britannica del 20% esclusa, ove applicabile. Su richiesta è disponibile il pagamento a rate (50% di acconto alla prenotazione / 50% prima del rilascio dei file CAD/DWG finali). [Ci contatti](/contact) prima di ordinare.",
-    outsideUkNote: "Progetto fuori dal Regno Unito? [Ci contatti](/contact) prima di ordinare, così confermiamo il trattamento IVA corretto per il suo Paese.",
+    outsideUkNote: "Clienti in tutto il mondo, tra cui Regno Unito, Europa e USA: i suoi disegni vengono realizzati secondo le norme edilizie e gli standard di disegno del **suo** Paese, non secondo gli standard britannici. Progetto fuori dal Regno Unito? [Ci contatti](/contact) prima di ordinare, così confermiamo i requisiti locali e il trattamento IVA corretto.",
     excludesNote: "Pagamento online sicuro. Non inclusi: calcoli strutturali, diritti e oneri amministrativi e qualsiasi lavoro edile in loco.",
     cancelled: "Il pagamento è stato annullato e non le è stato addebitato nulla.",
     paymentTitle: "Metodi di pagamento",
@@ -103,7 +103,7 @@ const it: Dict = {
   steps: [
     { title: "Scelga il pacchetto a perimetro fisso", text: "Selezioni Essential, Standard o Premium e completi l'ordine online." },
     { title: "Carichi misure e foto", text: "Invii le misure disegnate a mano, le foto dell'immobile, le planimetrie dell'agenzia e la descrizione del progetto tramite il nostro modulo sicuro." },
-    { title: "Disegno CAD e modellazione 3D a distanza", text: "Il nostro team di progettazione CAD nel Regno Unito realizza a distanza i suoi disegni architettonici in scala e la documentazione tecnica." },
+    { title: "Disegno CAD e modellazione 3D a distanza", text: "Il nostro team di progettazione CAD nel Regno Unito realizza a distanza i suoi disegni architettonici in scala e la documentazione tecnica, secondo le norme edilizie del Paese in cui si trova l'immobile." },
     { title: "Consegna digitale e revisioni", text: "Riceva via e-mail i PDF di revisione con filigrana, richieda i giri di revisione inclusi e scarichi poi i file finali PDF e DWG senza filigrana." },
   ],
   howPage: {
@@ -150,6 +150,8 @@ const it: Dict = {
     eyebrow: "FAQ", title: "Domande frequenti",
     items: [
       ["Venite a visitare il mio immobile?", "No. Siamo uno studio di progettazione 100% a distanza. Ogni disegno nasce dalle misure, dagli schizzi e dalle foto che ci invia: non visitiamo mai il suo immobile."],
+      ["Quali norme seguiranno i miei disegni?", "Quelle del Paese (e del Comune) in cui si trova l'immobile, non quelle britanniche. I progetti nel Regno Unito seguono le UK Building Regulations; quelli in Europa le norme nazionali e locali applicabili; quelli negli USA i codici adottati dal suo Stato e dalla giurisdizione locale (di norma basati su IRC/IBC). Unità di misura e formati sono quelli in uso nel suo Paese (metrici o imperiali). Indichi nella descrizione l'ente competente ed eventuali requisiti specifici."],
+      ["Lavorate con clienti negli USA e in altri Paesi?", "Sì. Lavoriamo interamente a distanza per clienti nel Regno Unito, in Europa, negli USA e in tutto il mondo. Ci contatti prima di ordinare per confermare i requisiti locali e il trattamento IVA corretto. Non forniamo timbri o firme professionali: se il suo ente richiede elaborati timbrati, un professionista abilitato localmente deve verificarli e timbrarli."],
       ["Cosa devo inviarvi?", "Le misure indicative di ogni stanza e dell'esterno (basta uno schizzo a mano), foto di ogni facciata e delle stanze interessate, eventuali planimetrie esistenti (ad es. da un annuncio immobiliare) e una breve descrizione di cosa vuole realizzare."],
       ["Quanto devono essere precise le misure?", "Il più possibile. Disegniamo sulle quote che ci fornisce, quindi gli errori si riflettono nei disegni. Segnaleremo ciò che appare incoerente, ma l'esattezza delle informazioni è sotto la sua responsabilità (vedi i Termini)."],
       ["In quali formati riceverò i file?", "Disegni PDF pronti per la stampa o la presentazione, più file CAD DWG modificabili. I pacchetti Standard e Premium includono anche render 3D ad alta risoluzione, e il Premium una specifica in PDF/DOCX."],
@@ -157,7 +159,6 @@ const it: Dict = {
       ["Presentate voi la pratica edilizia?", "Forniamo un set di disegni pronto per la presentazione. La presentazione e gli oneri restano a suo carico. Le spieghiamo volentieri quale documento va dove."],
       ["Calcoli strutturali o oneri sono inclusi?", "No. Calcoli strutturali, diritti di istruttoria e controllo e qualsiasi lavoro edile non sono inclusi."],
       ["Posso pagare a rate?", "Sì. Su richiesta possiamo dividere l'importo in un acconto del 50% e un 50% prima del rilascio dei file CAD/DWG finali. Ci contatti prima di ordinare."],
-      ["Il mio immobile è fuori dal Regno Unito. Potete aiutarmi?", "Sì, lavoriamo interamente a distanza. Ci contatti prima di ordinare per confermare gli standard di disegno necessari e il trattamento IVA corretto per il suo Paese."],
       ["Posso recedere?", "Sì. I consumatori hanno un diritto di recesso di 14 giorni. Se ci chiede di iniziare entro tale periodo, potremo addebitare il lavoro già svolto. Tutti i dettagli sono nella nostra Politica di rimborso e recesso."],
     ],
   },
@@ -302,7 +303,7 @@ const it: Dict = {
           "I tempi di consegna sono espressi in giorni lavorativi e decorrono dal ricevimento di misure e informazioni complete. Si tratta di stime in buona fede. Se servono ulteriori informazioni, i tempi restano sospesi fino al loro ricevimento. Se non ha chiesto un avvio anticipato, i tempi decorrono dalla fine del periodo di recesso di 14 giorni.",
         ] },
         { h: "8. Autorizzazioni", body: [
-          "I nostri disegni sono redatti con l'obiettivo di rispettare i requisiti urbanistici applicabili e le Building Regulations britanniche. Le decisioni spettano all'autorità competente e **non possiamo garantire l'approvazione di alcuna pratica**. Per immobili fuori dal Regno Unito è sua responsabilità verificare i requisiti locali; disegneremo secondo gli standard che ci indicherà. Le modifiche richieste da un ente entro il perimetro del pacchetto rientrano nei giri di revisione inclusi.",
+          "Redigiamo i suoi disegni secondo le **norme edilizie, urbanistiche e gli standard di disegno del Paese e del Comune in cui si trova l'immobile**; secondo gli standard britannici solo se l'immobile è nel Regno Unito. Ad esempio: UK Building Regulations nel Regno Unito; norme nazionali e locali nei Paesi dell'UE; codici adottati dallo Stato e dalla giurisdizione locale negli USA (di norma basati su IRC/IBC), in unità metriche o imperiali a seconda dei casi. Ci indichi l'ente competente ed eventuali requisiti locali specifici; variano da zona a zona e resta sua responsabilità verificarli con l'ente. Le decisioni spettano all'autorità competente e **non possiamo garantire l'approvazione di alcuna pratica**. Non forniamo timbri o firme professionali; ove la legge locale richieda elaborati timbrati, un professionista abilitato localmente deve verificarli e timbrarli. Le modifiche richieste da un ente entro il perimetro del pacchetto rientrano nei giri di revisione inclusi.",
         ] },
         { h: "9. Proprietà intellettuale", body: [
           "Il diritto d'autore (o, ove non trasferibile, tutti i diritti di utilizzazione economica cedibili) sui disegni CAD/PDF finali **le viene trasferito al ricevimento del pagamento completo**, nei limiti di legge. Fino ad allora i disegni restano di nostra proprietà e non devono essere usati né presentati. Modelli, cartigli e dettagli generici restano nostri, ma lei ha una licenza permanente per utilizzarli nei suoi disegni. Mostreremo il suo progetto nel nostro portfolio solo con il suo consenso.",
@@ -475,7 +476,7 @@ const it: Dict = {
           "Attività: disegno CAD architettonico a distanza e produzione di disegni digitali. Non siamo iscritti all'ARB (Regno Unito) né ad alcun organismo professionale equivalente in altri Paesi e non utilizziamo alcun titolo professionale protetto in nessun Paese.",
         ] },
         { h: "2. A chi sono rivolti i nostri servizi", body: [
-          "Vendiamo online pacchetti di disegni digitali su misura a clienti nel Regno Unito e all'estero, tra cui Germania, Francia, Spagna e Italia. Tutto il lavoro è svolto a distanza; non effettuiamo sopralluoghi né lavori edili in alcun Paese.",
+          "Vendiamo online pacchetti di disegni digitali su misura a clienti nel Regno Unito e all'estero, tra cui Germania, Francia, Spagna, Italia e Stati Uniti. Ogni cliente riceve disegni conformi alle norme edilizie del proprio Paese, non agli standard britannici. Tutto il lavoro è svolto a distanza; non effettuiamo sopralluoghi né lavori edili in alcun Paese.",
         ] },
         { h: "3. Recesso: consumatori del Regno Unito", body: [
           "I consumatori del Regno Unito hanno un diritto di recesso di 14 giorni ai sensi delle Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013. Se chiede espressamente l'avvio entro tale periodo, in caso di recesso dovrà pagare il lavoro svolto, e il diritto si estingue una volta eseguito interamente il servizio. Dettagli: [Politica di rimborso e recesso](/refund-policy).",

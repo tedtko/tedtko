@@ -23,9 +23,9 @@ const fr: Dict = {
     eyebrow: "Studio de conception architecturale CAO",
     titleA: "Plans CAO architecturaux & dossiers de permis à distance.",
     titleB: "100 % en ligne.",
-    lead: "Dossiers de conception 2D & 3D à prix fixe, plans d'étage et dessins conformes à la réglementation britannique, réalisés à distance à partir de vos mesures, croquis et photos. Livrés en formats PDF & DWG.",
+    lead: "Dossiers de conception 2D & 3D à prix fixe, plans d'étage et dessins conformes à la réglementation de votre pays, réalisés à distance à partir de vos mesures, croquis et photos. Livrés en formats PDF & DWG.",
     badgesLabel: "Pourquoi nous choisir",
-    badges: ["Livraison 100 % numérique", "Tarifs fixes et transparents", "Dessins conformes aux Building Regulations britanniques", "Délais numériques rapides"],
+    badges: ["Livraison 100 % numérique", "Tarifs fixes et transparents", "Conformes aux normes de votre pays", "Délais numériques rapides"],
     ctaPrimary: "Voir les formules",
     ctaSecondary: "Comment ça marche",
   },
@@ -86,7 +86,7 @@ const fr: Dict = {
       },
     },
     vatNote: "Tous les prix s'entendent hors TVA britannique de 20 %, le cas échéant. Un paiement échelonné (acompte de 50 % à la réservation / 50 % avant la remise des fichiers CAO/DWG finaux) est possible sur demande. [Contactez-nous](/contact) avant de commander.",
-    outsideUkNote: "Projet hors du Royaume-Uni ? [Contactez-nous](/contact) avant de commander afin que nous confirmions le traitement de TVA applicable à votre pays.",
+    outsideUkNote: "Clients du monde entier, notamment au Royaume-Uni, en Europe et aux États-Unis : vos plans sont réalisés selon les règles de construction et les normes de dessin de **votre** pays, et non selon les normes britanniques. Projet hors du Royaume-Uni ? [Contactez-nous](/contact) avant de commander afin de confirmer vos exigences locales et le traitement de TVA applicable.",
     excludesNote: "Paiement en ligne sécurisé. Non inclus : calculs de structure, taxes ou frais administratifs et tout travail de construction sur place.",
     cancelled: "Votre paiement a été annulé et vous n'avez pas été débité.",
     paymentTitle: "Moyens de paiement",
@@ -103,7 +103,7 @@ const fr: Dict = {
   steps: [
     { title: "Choisissez votre formule à périmètre fixe", text: "Sélectionnez Essential, Standard ou Premium et finalisez votre commande en ligne." },
     { title: "Envoyez vos mesures & photos", text: "Transmettez vos mesures dessinées à la main, photos du bien, plans d'agence immobilière et descriptif du projet via notre formulaire sécurisé." },
-    { title: "Dessin CAO & modélisation 3D à distance", text: "Notre équipe de conception CAO basée au Royaume-Uni réalise à distance vos plans architecturaux à l'échelle et vos dossiers techniques." },
+    { title: "Dessin CAO & modélisation 3D à distance", text: "Notre équipe de conception CAO basée au Royaume-Uni réalise à distance vos plans architecturaux à l'échelle et vos dossiers techniques, selon les normes de construction du pays où se trouve votre bien." },
     { title: "Livraison numérique & révisions", text: "Recevez des PDF de relecture filigranés par e-mail, demandez vos tours de révision inclus, puis téléchargez vos fichiers finaux PDF & DWG sans filigrane." },
   ],
   howPage: {
@@ -150,6 +150,8 @@ const fr: Dict = {
     eyebrow: "FAQ", title: "Questions fréquentes",
     items: [
       ["Vous déplacez-vous sur mon bien ?", "Non. Nous sommes un studio de conception 100 % à distance. Chaque plan est réalisé à partir des mesures, croquis et photos que vous nous envoyez : nous ne visitons jamais votre bien."],
+      ["Quelles normes mes plans respecteront-ils ?", "Celles du pays (et de la commune) où se trouve votre bien, et non les normes britanniques. Les projets au Royaume-Uni suivent les UK Building Regulations ; les projets en Europe, les règles nationales et locales applicables ; les projets aux États-Unis, les codes adoptés par votre État et votre collectivité (généralement fondés sur l'IRC/IBC). Les unités et formats de plans sont ceux d'usage dans votre pays (métriques ou impériaux). Indiquez-nous votre administration compétente et vos exigences particulières dans votre descriptif."],
+      ["Travaillez-vous avec des clients aux États-Unis et dans d'autres pays ?", "Oui. Nous travaillons entièrement à distance pour des clients au Royaume-Uni, en Europe, aux États-Unis et dans le monde entier. Contactez-nous avant de commander afin de confirmer vos exigences locales et le traitement de TVA applicable. Nous ne fournissons ni tampon ni sceau professionnel : si votre administration exige des plans visés, un professionnel habilité localement doit les vérifier et les viser."],
       ["Que dois-je vous envoyer ?", "Les mesures approximatives de chaque pièce et de l'extérieur (un croquis à la main suffit), des photos de chaque façade et des pièces concernées, les plans existants (par ex. d'une annonce immobilière) et un court descriptif de votre projet."],
       ["Quelle précision pour mes mesures ?", "La meilleure possible. Nous dessinons selon vos cotes : les erreurs se retrouvent donc dans les plans. Nous signalons les incohérences, mais l'exactitude des informations reste sous votre responsabilité (voir nos Conditions)."],
       ["Quels formats de fichiers vais-je recevoir ?", "Des plans PDF prêts à imprimer ou à déposer, ainsi que des fichiers CAO DWG modifiables. Les formules Standard et Premium incluent aussi des rendus 3D haute résolution, et Premium une spécification en PDF/DOCX."],
@@ -157,7 +159,6 @@ const fr: Dict = {
       ["Déposez-vous la demande d'autorisation pour moi ?", "Nous fournissons un jeu de plans prêt à déposer. Le dépôt et les frais administratifs restent à votre charge. Nous vous expliquons volontiers quel document va où."],
       ["Les calculs de structure ou les frais administratifs sont-ils inclus ?", "Non. Les calculs de structure, les frais d'autorisation et de contrôle, ainsi que tout travail de construction ne sont pas inclus."],
       ["Puis-je payer en plusieurs fois ?", "Oui. Sur demande, nous pouvons scinder le prix en un acompte de 50 % et 50 % avant la remise des fichiers CAO/DWG finaux. Contactez-nous avant de commander."],
-      ["Mon bien est hors du Royaume-Uni. Pouvez-vous m'aider ?", "Oui, nous travaillons entièrement à distance. Contactez-nous avant de commander afin de confirmer les normes de dessin requises et le traitement de TVA applicable à votre pays."],
       ["Puis-je annuler ?", "Oui. Les consommateurs disposent d'un droit de rétractation de 14 jours. Si vous nous demandez de commencer pendant ce délai, le travail déjà réalisé pourra vous être facturé. Tous les détails figurent dans notre Politique de remboursement et d'annulation."],
     ],
   },
@@ -302,7 +303,7 @@ const fr: Dict = {
           "Les délais sont exprimés en jours ouvrés et courent à compter de la réception de mesures et informations complètes. Ce sont des estimations de bonne foi. Si des informations complémentaires sont nécessaires, le délai est suspendu jusqu'à leur réception. Si vous n'avez pas demandé un démarrage anticipé, le délai commence à l'expiration du délai de rétractation de 14 jours.",
         ] },
         { h: "8. Autorisations", body: [
-          "Nos plans visent à respecter les exigences d'urbanisme applicables et les Building Regulations britanniques. Les décisions d'autorisation relèvent de l'administration compétente : **nous ne pouvons garantir l'obtention d'aucune autorisation**. Pour les biens situés hors du Royaume-Uni, il vous appartient de vérifier les exigences locales ; nous dessinons selon les normes que vous nous indiquez. Les modifications demandées par une administration dans le périmètre de votre formule sont imputées sur vos tours de révision.",
+          "Nous réalisons vos plans selon les **règles de construction, d'urbanisme et les normes de dessin du pays et de la collectivité où se trouve votre bien** – selon les normes britanniques uniquement si votre bien est au Royaume-Uni. Par exemple : UK Building Regulations au Royaume-Uni ; règles nationales et locales dans les pays de l'UE ; codes adoptés par l'État et la collectivité aux États-Unis (généralement fondés sur l'IRC/IBC), en unités métriques ou impériales selon le cas. Indiquez-nous votre administration compétente et vos exigences locales particulières ; elles varient d'une zone à l'autre et il vous appartient de les confirmer auprès de votre administration. Les décisions d'autorisation relèvent de l'administration compétente : **nous ne pouvons garantir l'obtention d'aucune autorisation**. Nous ne fournissons ni tampon ni sceau professionnel ; lorsque la loi locale exige des plans visés, un professionnel habilité localement doit les vérifier et les viser. Les modifications demandées par une administration dans le périmètre de votre formule sont imputées sur vos tours de révision.",
         ] },
         { h: "9. Propriété intellectuelle", body: [
           "Les droits d'auteur (ou, à défaut, l'ensemble des droits d'exploitation cessibles) sur les plans CAO/PDF finaux **vous sont transférés dès réception du paiement intégral**, dans la mesure permise par la loi. Jusque-là, les plans restent notre propriété et ne doivent pas être utilisés ni déposés. Nos modèles, cartouches et détails génériques restent notre propriété ; vous bénéficiez d'une licence permanente pour les utiliser dans vos plans. Nous ne présentons votre projet dans notre portfolio qu'avec votre accord.",
@@ -475,7 +476,7 @@ const fr: Dict = {
           "Activité : dessin CAO architectural à distance et production de plans numériques. Nous ne sommes inscrits ni auprès de l'ARB (Royaume-Uni) ni auprès d'un organisme professionnel équivalent dans un autre pays, et nous n'utilisons aucun titre professionnel protégé, dans aucun pays.",
         ] },
         { h: "2. À qui s'adressent nos prestations", body: [
-          "Nous vendons en ligne des dossiers de plans numériques sur mesure à des clients au Royaume-Uni et à l'international, notamment en Allemagne, en France, en Espagne et en Italie. Tout le travail est effectué à distance ; nous n'effectuons ni visite ni travaux, dans aucun pays.",
+          "Nous vendons en ligne des dossiers de plans numériques sur mesure à des clients au Royaume-Uni et à l'international, notamment en Allemagne, en France, en Espagne, en Italie et aux États-Unis. Chaque client reçoit des plans conformes aux normes de construction de son propre pays, et non aux normes britanniques. Tout le travail est effectué à distance ; nous n'effectuons ni visite ni travaux, dans aucun pays.",
         ] },
         { h: "3. Annulation : consommateurs britanniques", body: [
           "Les consommateurs britanniques disposent d'un droit d'annulation de 14 jours en vertu des Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013. Si vous demandez expressément un démarrage pendant ce délai, le travail effectué reste dû en cas d'annulation, et le droit s'éteint une fois la prestation pleinement exécutée. Détails : [Politique de remboursement et d'annulation](/refund-policy).",

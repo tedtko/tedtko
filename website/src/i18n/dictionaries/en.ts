@@ -23,9 +23,9 @@ const en: Dict = {
     eyebrow: "Architectural CAD Design Studio",
     titleA: "Remote Architectural CAD Drawings & Planning Packs.",
     titleB: "100% Online.",
-    lead: "Fixed-fee 2D & 3D architectural design packs, floor plans, and building regulations drawings produced remotely from your measurements, sketches, and photos. Delivered digitally in PDF & DWG formats.",
+    lead: "Fixed-fee 2D & 3D architectural design packs, floor plans, and building regulations drawings produced remotely from your measurements, sketches, and photos, drawn to the building standards of your country. Delivered digitally in PDF & DWG formats.",
     badgesLabel: "Why choose us",
-    badges: ["100% Remote Digital Delivery", "Fixed Transparent Pricing", "UK Building Regs Compliant Drafting", "Fast Digital Turnaround"],
+    badges: ["100% Remote Digital Delivery", "Fixed Transparent Pricing", "Drafted to Your Country's Building Codes", "Fast Digital Turnaround"],
     ctaPrimary: "View Drawing Packages",
     ctaSecondary: "How It Works",
   },
@@ -86,7 +86,7 @@ const en: Dict = {
       },
     },
     vatNote: "All prices exclude 20% UK VAT where applicable. Stage payment options (50% booking deposit / 50% prior to final CAD/DWG release) are available on request. [Contact us](/contact) before ordering.",
-    outsideUkNote: "Project outside the UK? Please [contact us](/contact) before ordering so we can confirm the correct VAT treatment for your country.",
+    outsideUkNote: "Clients worldwide, including the UK, Europe and the USA: your drawings are produced to the building codes and drawing standards of **your** country, not UK standards. Project outside the UK? Please [contact us](/contact) before ordering so we can confirm your local requirements and the correct VAT treatment.",
     excludesNote: "Secure online checkout. Excludes structural engineering calculations, council or authority fees and any physical building work.",
     cancelled: "Your payment was cancelled and you have not been charged.",
     paymentTitle: "Payment options",
@@ -103,7 +103,7 @@ const en: Dict = {
   steps: [
     { title: "Select your fixed-scope digital pack", text: "Choose Essential, Standard or Premium and complete your order online." },
     { title: "Upload your measurements & photos", text: "Send your hand-drawn measurements, property photos, estate agent floor plans and project brief through our secure online intake form." },
-    { title: "Remote CAD drafting & 3D modelling", text: "Our UK CAD design team produces your scaled architectural drawings and technical packs remotely." },
+    { title: "Remote CAD drafting & 3D modelling", text: "Our UK-based CAD design team produces your scaled architectural drawings and technical packs remotely, to the building standards of the country where your property is." },
     { title: "Digital delivery & revisions", text: "Receive watermarked review PDFs by email, request your included revision round(s), then download your final unwatermarked PDF & DWG files." },
   ],
   howPage: {
@@ -150,6 +150,8 @@ const en: Dict = {
     eyebrow: "FAQ", title: "Frequently asked questions",
     items: [
       ["Do you visit my property?", "No. We're a 100% remote design studio. Every drawing is produced from the measurements, sketches and photos you send us, so we never visit your property."],
+      ["Which building standards will my drawings follow?", "The standards of the country (and local area) where your property is, not UK standards. UK projects follow the UK Building Regulations and planning rules; projects in Europe follow the national and local rules there; US projects follow the building codes adopted by your state and local jurisdiction (typically based on the IRC/IBC). Drawings use the units and sheet sizes normal in your country, metric or imperial (feet and inches). Tell us your local authority and any specific requirements in your brief."],
+      ["Do you work with clients in the USA and other countries?", "Yes. We work fully remotely for clients in the UK, Europe, the USA and worldwide. Please contact us before ordering so we can confirm your local requirements and the correct VAT treatment. We don't provide professional stamps or seals: if your jurisdiction requires sealed drawings for a permit, a locally licensed professional must review and seal them."],
       ["What do I need to send you?", "Rough measurements of each room and the outside of the property (a hand sketch is fine), photos of every elevation and the rooms affected, any existing floor plans (e.g. from an estate agent listing), and a short description of what you want to build."],
       ["How accurate do my measurements need to be?", "As accurate as you can make them. We draft to the dimensions you give us, so errors carry through to the drawings. We'll flag anything that looks inconsistent, but you're responsible for the accuracy of what you submit (see our Terms)."],
       ["What file formats will I receive?", "PDF drawings ready to print or upload to a planning portal, plus editable DWG CAD files. The Standard and Premium packs also include high-res 3D render images, and Premium includes a PDF/DOCX specification."],
@@ -157,7 +159,6 @@ const en: Dict = {
       ["Do you submit the planning application for me?", "We supply a submission-ready drawing set formatted for the relevant planning portal. You submit it and pay the authority's fees. We're happy to explain what goes where."],
       ["Are structural calculations or authority fees included?", "No. Structural engineering calculations, planning and building control fees, and any physical building work are not included."],
       ["Can I pay in stages?", "Yes. On request we can split the fee into a 50% booking deposit and 50% before your final CAD/DWG files are released. Get in touch before ordering."],
-      ["My property is outside the UK. Can you help?", "Yes, we work fully remotely. Please contact us before ordering so we can confirm the drawing standards you need and the correct VAT treatment for your country."],
       ["Can I cancel?", "Yes. Consumers have a 14-day cancellation right. If you ask us to start work within that period, we may charge for work already done. Full details are in our Refund & Cancellation Policy."],
     ],
   },
@@ -302,7 +303,7 @@ const en: Dict = {
           "Delivery timelines are stated in business days and start once we have received complete measurements and information from you. They are good-faith estimates. If we need more information, the timeline pauses until we receive it. If you did not ask us to start during the 14-day cancellation period, the timeline starts after that period ends.",
         ] },
         { h: "8. Approvals", body: [
-          "Our drawings are prepared with the aim of meeting the relevant planning requirements and UK Building Regulations. Decisions on planning permission and building control approval are made by the relevant authority, and **we cannot guarantee any application will be approved**. For properties outside the UK, you are responsible for confirming local requirements; we'll draft to the standards you tell us. Amendments requested by an authority within the scope of your package count towards your included revision rounds.",
+          "We prepare your drawings to the **building codes, planning rules and drawing standards of the country and local area where your property is located**, not to UK standards unless your property is in the UK. For example: UK Building Regulations in the UK; national and local rules in EU countries; and the codes adopted by your state and local jurisdiction in the USA (typically based on the IRC/IBC), in imperial or metric units as appropriate. Please tell us your local authority and any specific local requirements; requirements vary between areas and you remain responsible for confirming them with your authority. Decisions on permits and approvals are made by the relevant authority, and **we cannot guarantee any application will be approved**. We do not provide professional stamps or seals; where local law requires sealed drawings, a locally licensed professional must review and seal them. Amendments requested by an authority within the scope of your package count towards your included revision rounds.",
         ] },
         { h: "9. Intellectual property", body: [
           "Full copyright in the final CAD/PDF drawings we produce for you **transfers to you on receipt of full, cleared payment**. Until then, the drawings remain our property and must not be used or submitted. Our standard templates, title blocks and generic details remain ours, but you have a permanent licence to use them as part of your drawings. We'll only show your project in our portfolio with your permission.",
@@ -476,7 +477,7 @@ const en: Dict = {
           "Business activity: remote architectural CAD drafting and digital drawing production. We are not registered with the ARB (UK) or any equivalent professional body in another country, and we do not use any protected professional title in any country.",
         ] },
         { h: "2. Who our services are for", body: [
-          "We sell bespoke digital drawing packs online to customers in the UK and internationally, including Germany, France, Spain and Italy. All work is done remotely; we make no site visits and carry out no building work in any country.",
+          "We sell bespoke digital drawing packs online to customers in the UK and internationally, including Germany, France, Spain, Italy and the United States. Every customer receives drawings prepared to the building standards of their own country, not UK standards. All work is done remotely; we make no site visits and carry out no building work in any country.",
         ] },
         { h: "3. Cancellation & withdrawal: UK consumers", body: [
           "UK consumers have a 14-day right to cancel under the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013. If you expressly ask us to begin drafting within that period, you must pay for work done if you cancel, and you lose the right to cancel once the service has been fully performed. Details: [Refund & Cancellation Policy](/refund-policy).",

@@ -23,9 +23,9 @@ const de: Dict = {
     eyebrow: "Architektonisches CAD-Designstudio",
     titleA: "Architektonische CAD-Zeichnungen & Planungspakete aus der Ferne.",
     titleB: "100 % online.",
-    lead: "2D- & 3D-Planungspakete zum Festpreis, Grundrisse und Zeichnungen nach britischen Bauvorschriften – remote erstellt nach Ihren Maßen, Skizzen und Fotos. Digitale Lieferung als PDF & DWG.",
+    lead: "2D- & 3D-Planungspakete zum Festpreis, Grundrisse und Zeichnungen nach den Bauvorschriften Ihres Landes – remote erstellt nach Ihren Maßen, Skizzen und Fotos. Digitale Lieferung als PDF & DWG.",
     badgesLabel: "Ihre Vorteile",
-    badges: ["100 % digitale Lieferung", "Transparente Festpreise", "Zeichnungen nach UK-Bauvorschriften", "Schnelle digitale Bearbeitung"],
+    badges: ["100 % digitale Lieferung", "Transparente Festpreise", "Nach den Bauvorschriften Ihres Landes", "Schnelle digitale Bearbeitung"],
     ctaPrimary: "Zeichnungspakete ansehen",
     ctaSecondary: "So funktioniert's",
   },
@@ -86,7 +86,7 @@ const de: Dict = {
       },
     },
     vatNote: "Alle Preise verstehen sich zzgl. 20 % britischer Mehrwertsteuer, sofern anwendbar. Auf Anfrage ist eine Zahlung in Raten möglich (50 % Anzahlung bei Buchung / 50 % vor Freigabe der finalen CAD/DWG-Dateien). [Kontaktieren Sie uns](/contact) vor der Bestellung.",
-    outsideUkNote: "Projekt außerhalb des Vereinigten Königreichs? Bitte [kontaktieren Sie uns](/contact) vor der Bestellung, damit wir die korrekte umsatzsteuerliche Behandlung für Ihr Land bestätigen können.",
+    outsideUkNote: "Kunden weltweit, u. a. im Vereinigten Königreich, in Europa und den USA: Ihre Zeichnungen werden nach den Bauvorschriften und Zeichnungsstandards **Ihres** Landes erstellt, nicht nach britischen Standards. Projekt außerhalb des Vereinigten Königreichs? Bitte [kontaktieren Sie uns](/contact) vor der Bestellung, damit wir Ihre örtlichen Anforderungen und die korrekte umsatzsteuerliche Behandlung klären können.",
     excludesNote: "Sicherer Online-Checkout. Nicht enthalten: Statikberechnungen, Gebühren von Behörden sowie jegliche Bauleistungen vor Ort.",
     cancelled: "Ihre Zahlung wurde abgebrochen. Es wurde nichts abgebucht.",
     paymentTitle: "Zahlungsmöglichkeiten",
@@ -103,7 +103,7 @@ const de: Dict = {
   steps: [
     { title: "Paket mit festem Umfang wählen", text: "Wählen Sie Essential, Standard oder Premium und schließen Sie Ihre Bestellung online ab." },
     { title: "Maße & Fotos hochladen", text: "Senden Sie uns Ihre handskizzierten Maße, Fotos der Immobilie, vorhandene Grundrisse und Ihre Projektbeschreibung über unser sicheres Online-Formular." },
-    { title: "Remote-CAD-Zeichnung & 3D-Modellierung", text: "Unser britisches CAD-Designteam erstellt Ihre maßstäblichen Architekturzeichnungen und technischen Unterlagen remote." },
+    { title: "Remote-CAD-Zeichnung & 3D-Modellierung", text: "Unser CAD-Designteam mit Sitz im Vereinigten Königreich erstellt Ihre maßstäblichen Architekturzeichnungen und technischen Unterlagen remote – nach den Bauvorschriften des Landes, in dem Ihre Immobilie liegt." },
     { title: "Digitale Lieferung & Korrekturen", text: "Sie erhalten Entwurfs-PDFs mit Wasserzeichen per E-Mail, nutzen Ihre enthaltene(n) Korrekturrunde(n) und laden anschließend Ihre finalen PDF- & DWG-Dateien ohne Wasserzeichen herunter." },
   ],
   howPage: {
@@ -150,6 +150,8 @@ const de: Dict = {
     eyebrow: "FAQ", title: "Häufig gestellte Fragen",
     items: [
       ["Kommen Sie zu meiner Immobilie?", "Nein. Wir sind ein 100 % remote arbeitendes Designstudio. Jede Zeichnung entsteht anhand der Maße, Skizzen und Fotos, die Sie uns senden – wir besuchen Ihre Immobilie nie."],
+      ["Nach welchen Bauvorschriften werden meine Zeichnungen erstellt?", "Nach den Vorschriften des Landes (und der Region), in dem Ihre Immobilie liegt – nicht nach britischen Standards. Projekte im Vereinigten Königreich folgen den UK Building Regulations, Projekte in Europa den dortigen nationalen und örtlichen Vorschriften, Projekte in den USA den von Ihrem Bundesstaat und Ihrer Gemeinde übernommenen Bauordnungen (meist auf Basis von IRC/IBC). Maßeinheiten und Blattformate richten sich nach Ihrem Land (metrisch oder imperial). Nennen Sie uns bitte Ihre zuständige Behörde und besondere Anforderungen in Ihrer Beschreibung."],
+      ["Arbeiten Sie auch für Kunden in den USA und anderen Ländern?", "Ja. Wir arbeiten vollständig remote für Kunden im Vereinigten Königreich, in Europa, den USA und weltweit. Bitte kontaktieren Sie uns vor der Bestellung, damit wir Ihre örtlichen Anforderungen und die korrekte umsatzsteuerliche Behandlung klären können. Wir stellen keine Prüfstempel oder Siegel aus: Wenn Ihre Behörde gesiegelte Zeichnungen verlangt, muss eine dort zugelassene Fachperson sie prüfen und siegeln."],
       ["Was muss ich Ihnen senden?", "Ungefähre Maße jedes Raums und der Außenseite des Gebäudes (eine Handskizze genügt), Fotos aller Fassaden und der betroffenen Räume, vorhandene Grundrisse (z. B. aus einem Exposé) und eine kurze Beschreibung Ihres Vorhabens."],
       ["Wie genau müssen meine Maße sein?", "So genau wie möglich. Wir zeichnen nach Ihren Angaben, daher übertragen sich Fehler in die Zeichnungen. Unstimmigkeiten weisen wir Ihnen hin, verantwortlich für die Richtigkeit sind jedoch Sie (siehe AGB)."],
       ["Welche Dateiformate erhalte ich?", "Druckfertige PDF-Zeichnungen für die Einreichung sowie bearbeitbare DWG-CAD-Dateien. Standard und Premium enthalten zusätzlich hochauflösende 3D-Bilder, Premium außerdem eine Spezifikation als PDF/DOCX."],
@@ -157,7 +159,6 @@ const de: Dict = {
       ["Reichen Sie den Bauantrag für mich ein?", "Wir liefern einen einreichfertigen Zeichnungssatz. Die Einreichung und die Behördengebühren übernehmen Sie. Gern erklären wir, welche Unterlage wohin gehört."],
       ["Sind Statik oder Behördengebühren enthalten?", "Nein. Statikberechnungen, Genehmigungs- und Prüfgebühren sowie jegliche Bauleistungen sind nicht enthalten."],
       ["Kann ich in Raten zahlen?", "Ja. Auf Anfrage teilen wir das Honorar in 50 % Anzahlung und 50 % vor Freigabe der finalen CAD/DWG-Dateien. Bitte sprechen Sie uns vor der Bestellung an."],
-      ["Meine Immobilie liegt außerhalb des Vereinigten Königreichs. Können Sie helfen?", "Ja, wir arbeiten vollständig remote. Bitte kontaktieren Sie uns vor der Bestellung, damit wir die benötigten Zeichnungsstandards und die korrekte umsatzsteuerliche Behandlung für Ihr Land klären können."],
       ["Kann ich widerrufen?", "Ja. Verbraucher haben ein 14-tägiges Widerrufsrecht. Wenn Sie verlangen, dass wir innerhalb dieser Frist beginnen, berechnen wir bei Widerruf die bis dahin erbrachten Leistungen. Einzelheiten finden Sie in unserer Widerrufs- & Erstattungsrichtlinie."],
     ],
   },
@@ -302,7 +303,7 @@ const de: Dict = {
           "Lieferzeiträume werden in Werktagen angegeben und beginnen mit Eingang vollständiger Maße und Informationen. Es handelt sich um Schätzungen nach bestem Wissen. Benötigen wir weitere Informationen, ruht die Frist bis zu deren Eingang. Haben Sie keinen vorzeitigen Beginn verlangt, beginnt der Zeitraum nach Ablauf der 14-tägigen Widerrufsfrist.",
         ] },
         { h: "8. Genehmigungen", body: [
-          "Unsere Zeichnungen werden mit dem Ziel erstellt, die einschlägigen Planungsanforderungen und die britischen Building Regulations zu erfüllen. Über Genehmigungen entscheidet die zuständige Behörde; **wir können keine Genehmigung garantieren**. Für Immobilien außerhalb des Vereinigten Königreichs sind Sie dafür verantwortlich, die örtlichen Anforderungen zu klären; wir zeichnen nach den Standards, die Sie uns nennen. Von einer Behörde verlangte Änderungen im Leistungsumfang werden auf Ihre Korrekturrunden angerechnet.",
+          "Wir erstellen Ihre Zeichnungen nach den **Bauvorschriften, Planungsregeln und Zeichnungsstandards des Landes und der Region, in der Ihre Immobilie liegt** – nach britischen Standards nur, wenn sich die Immobilie im Vereinigten Königreich befindet. Zum Beispiel: UK Building Regulations im Vereinigten Königreich, nationale und örtliche Vorschriften in EU-Ländern und die von Bundesstaat und Gemeinde übernommenen Bauordnungen in den USA (meist auf Basis von IRC/IBC), in metrischen oder imperialen Einheiten. Bitte nennen Sie uns Ihre zuständige Behörde und besondere örtliche Anforderungen; diese unterscheiden sich regional, und Sie bleiben dafür verantwortlich, sie mit Ihrer Behörde abzuklären. Über Genehmigungen entscheidet die zuständige Behörde; **wir können keine Genehmigung garantieren**. Wir stellen keine Prüfstempel oder Siegel aus; wenn örtliches Recht gesiegelte Zeichnungen verlangt, muss eine dort zugelassene Fachperson sie prüfen und siegeln. Von einer Behörde verlangte Änderungen im Leistungsumfang werden auf Ihre Korrekturrunden angerechnet.",
         ] },
         { h: "9. Urheberrecht", body: [
           "Das vollständige Urheberrecht (bzw. die umfassenden Nutzungsrechte) an den finalen CAD/PDF-Zeichnungen **geht mit vollständigem Zahlungseingang auf Sie über**, soweit gesetzlich zulässig. Bis dahin bleiben die Zeichnungen unser Eigentum und dürfen nicht verwendet oder eingereicht werden. Unsere Standardvorlagen, Schriftfelder und allgemeinen Details bleiben unser Eigentum; Sie erhalten ein dauerhaftes Nutzungsrecht im Rahmen Ihrer Zeichnungen. Ihr Projekt zeigen wir nur mit Ihrer Zustimmung im Portfolio.",
@@ -475,7 +476,7 @@ const de: Dict = {
           "Tätigkeit: architektonisches CAD-Zeichnen aus der Ferne und Erstellung digitaler Zeichnungen. Wir sind nicht beim ARB (Vereinigtes Königreich) oder einer vergleichbaren Berufskammer in einem anderen Land registriert und führen in keinem Land eine geschützte Berufsbezeichnung.",
         ] },
         { h: "2. Für wen unsere Leistungen bestimmt sind", body: [
-          "Wir verkaufen individuelle digitale Zeichnungspakete online an Kunden im Vereinigten Königreich und international, u. a. in Deutschland, Frankreich, Spanien und Italien. Alle Arbeiten erfolgen remote; wir führen in keinem Land Ortstermine oder Bauarbeiten durch.",
+          "Wir verkaufen individuelle digitale Zeichnungspakete online an Kunden im Vereinigten Königreich und international, u. a. in Deutschland, Frankreich, Spanien, Italien und den USA. Jeder Kunde erhält Zeichnungen nach den Bauvorschriften seines eigenen Landes, nicht nach britischen Standards. Alle Arbeiten erfolgen remote; wir führen in keinem Land Ortstermine oder Bauarbeiten durch.",
         ] },
         { h: "3. Widerruf: Verbraucher im Vereinigten Königreich", body: [
           "Verbraucher im Vereinigten Königreich haben nach den Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013 ein 14-tägiges Widerrufsrecht. Verlangen Sie ausdrücklich einen Beginn innerhalb dieser Frist, zahlen Sie bei Widerruf die erbrachten Leistungen; das Widerrufsrecht erlischt bei vollständiger Erbringung. Einzelheiten: [Widerrufs- & Erstattungsrichtlinie](/refund-policy).",
